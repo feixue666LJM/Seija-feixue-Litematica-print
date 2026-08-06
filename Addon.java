@@ -119,10 +119,10 @@ public final class Addon implements ClientModInitializer {
         while (openDebugScreen.consumeClick()) {
             // Do not create screens at title/menu: there is no module context there.
             if (client.player == null || client.level == null) continue;
-            if (client.screen instanceof PrinterDebugScreen) {
-                client.screen.onClose();
+            if (client.gui.screen() instanceof PrinterDebugScreen screen) {
+                screen.onClose();
             } else {
-                client.setScreen(new PrinterDebugScreen(client.screen, runtime));
+                client.gui.setScreen(new PrinterDebugScreen(client.gui.screen(), runtime));
             }
         }
 
@@ -156,6 +156,5 @@ public final class Addon implements ClientModInitializer {
 
         Render3DEvent event = new Render3DEvent(context);
         runtime.onRender3d(event);
-        event.flush();
     }
 }

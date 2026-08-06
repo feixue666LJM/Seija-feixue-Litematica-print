@@ -76,7 +76,7 @@ public final class PrinterDebugScreen extends Screen {
 
     /** Convenience entry point for key mappings and other client integrations. */
     public static void open(Minecraft client, InitClass runtime) {
-        if (client != null) client.setScreen(new PrinterDebugScreen(client.screen, runtime));
+        if (client != null) client.gui.setScreen(new PrinterDebugScreen(client.gui.screen(), runtime));
     }
 
     @Override
@@ -207,7 +207,7 @@ public final class PrinterDebugScreen extends Screen {
                 .onValueChange((checkbox, value) -> {
                     boolSetting.set(value);
                     minecraft.execute(() -> {
-                        if (minecraft.screen == this) rebuildWidgets();
+                        if (minecraft.gui.screen() == this) rebuildWidgets();
                     });
                 });
             if (tooltip != null) builder.tooltip(tooltip);
@@ -332,7 +332,7 @@ public final class PrinterDebugScreen extends Screen {
     @Override
     public void onClose() {
         saveSettings();
-        minecraft.setScreen(parent);
+        minecraft.gui.setScreen(parent);
     }
 
     @Override
