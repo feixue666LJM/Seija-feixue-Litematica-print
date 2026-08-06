@@ -1,6 +1,6 @@
 package com.kijinseija.seija_printer.settings.impl;
 
-import net.minecraft.core.Direction;
+import net.minecraft.util.math.Direction;
 
 /** Simple editor used by the native configuration screen. */
 public final class DirectionListSettingScreen {

@@ -8,10 +8,10 @@ package com.kijinseija.seija_printer.settings.core;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonPrimitive;
-import net.minecraft.nbt.CompoundTag;
-
 import java.util.Objects;
 import java.util.function.Consumer;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public abstract class Setting<T> {
     public final String name;
@@ -92,25 +92,26 @@ public abstract class Setting<T> {
         if (onModuleActivated != null) onModuleActivated.accept(this);
     }
 
-    public final CompoundTag toTag() {
-        CompoundTag tag = new CompoundTag();
+    public final NbtCompound toTag() {
+        NbtCompound tag = new NbtCompound();
         tag.putString("name", name);
         return save(tag);
     }
 
-    public final boolean fromTag(CompoundTag tag) {
+    public final boolean fromTag(NbtCompound tag) {
         if (tag == null) return false;
         T loaded = load(tag);
         return loaded != null && set(loaded);
     }
 
-    protected CompoundTag save(CompoundTag tag) {
+    protected NbtCompound save(NbtCompound tag) {
         if (value != null) tag.putString("value", value.toString());
         return tag;
     }
 
-    protected T load(CompoundTag tag) {
-        return parseImpl(tag.getString("value").orElse(""));
+    protected T load(NbtCompound tag) {
+        if (!tag.contains("value", NbtElement.STRING_TYPE)) return defaultValue;
+        return parseImpl(tag.getString("value"));
     }
 
     public JsonElement toJson() {

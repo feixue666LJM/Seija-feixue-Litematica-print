@@ -7,12 +7,11 @@ package com.kijinseija.seija_printer.settings.core;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public final class SettingGroup {
     public final String name;
@@ -41,16 +40,16 @@ public final class SettingGroup {
         return null;
     }
 
-    CompoundTag toTag() {
-        CompoundTag tag = new CompoundTag();
+    NbtCompound toTag() {
+        NbtCompound tag = new NbtCompound();
         for (Setting<?> setting : settings) tag.put(setting.name, setting.toTag());
         return tag;
     }
 
-    void fromTag(CompoundTag tag) {
+    void fromTag(NbtCompound tag) {
         for (Setting<?> setting : settings) {
-            Tag settingTag = tag.get(setting.name);
-            if (settingTag instanceof CompoundTag compoundTag) setting.fromTag(compoundTag);
+            NbtElement settingTag = tag.get(setting.name);
+            if (settingTag instanceof NbtCompound compoundTag) setting.fromTag(compoundTag);
         }
     }
 

@@ -7,9 +7,8 @@ package com.kijinseija.seija_printer.settings.core;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import net.minecraft.nbt.CompoundTag;
-
 import java.util.function.Consumer;
+import net.minecraft.nbt.NbtCompound;
 
 public class EnumSetting<T extends Enum<T>> extends Setting<T> {
     private final Class<T> enumClass;
@@ -37,14 +36,14 @@ public class EnumSetting<T extends Enum<T>> extends Setting<T> {
     }
 
     @Override
-    protected CompoundTag save(CompoundTag tag) {
+    protected NbtCompound save(NbtCompound tag) {
         tag.putString("value", value.name());
         return tag;
     }
 
     @Override
-    protected T load(CompoundTag tag) {
-        T parsed = parseImpl(tag.getString("value").orElse(""));
+    protected T load(NbtCompound tag) {
+        T parsed = parseImpl(tag.getString("value"));
         return parsed == null ? defaultValue : parsed;
     }
 

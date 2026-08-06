@@ -10,15 +10,15 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.kijinseija.seija_printer.settings.core.IVisible;
 import com.kijinseija.seija_printer.settings.core.Setting;
-import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.StringTag;
-import net.minecraft.nbt.Tag;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtString;
+import net.minecraft.util.math.Direction;
 
 public class DirectionListSetting extends Setting<List<Direction>> {
     public DirectionListSetting(String name, String description, List<Direction> defaultValue, Consumer<List<Direction>> onChanged, Consumer<Setting<List<Direction>>> onModuleActivated, IVisible visible) {
@@ -48,10 +48,10 @@ public class DirectionListSetting extends Setting<List<Direction>> {
     }
 
     @Override
-    public CompoundTag save(CompoundTag tag) {
-        ListTag valueTag = new ListTag();
+    public NbtCompound save(NbtCompound tag) {
+        NbtList valueTag = new NbtList();
         for (Direction dir : get()) {
-            valueTag.add(StringTag.valueOf(dir.getName()));
+            valueTag.add(NbtString.of(dir.getName()));
         }
         tag.put("value", valueTag);
 
@@ -59,17 +59,18 @@ public class DirectionListSetting extends Setting<List<Direction>> {
     }
 
     @Override
-    public List<Direction> load(CompoundTag tag) {
-        get().clear();
+    public List<Direction> load(NbtCompound tag) {
+        if (!tag.contains("value", NbtElement.LIST_TYPE)) return new ArrayList<>(defaultValue);
 
-        ListTag valueTag = tag.getListOrEmpty("value");
-        for (Tag tagI : valueTag) {
-            Direction dir = Direction.byName(tagI.asString().orElse(null));
+        List<Direction> directions = new ArrayList<>();
+        NbtList valueTag = tag.getList("value", NbtElement.STRING_TYPE);
+        for (NbtElement tagI : valueTag) {
+            Direction dir = Direction.byName(tagI.asString());
             if (dir != null)
-                get().add(dir);
+                directions.add(dir);
         }
 
-        return get();
+        return directions;
     }
 
     @Override
