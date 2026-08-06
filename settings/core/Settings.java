@@ -10,12 +10,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public final class Settings {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -53,17 +52,17 @@ public final class Settings {
         return null;
     }
 
-    public CompoundTag toTag() {
-        CompoundTag tag = new CompoundTag();
+    public NbtCompound toTag() {
+        NbtCompound tag = new NbtCompound();
         for (SettingGroup group : groups) tag.put(group.name, group.toTag());
         return tag;
     }
 
-    public void fromTag(CompoundTag tag) {
+    public void fromTag(NbtCompound tag) {
         if (tag == null) return;
         for (SettingGroup group : groups) {
-            Tag groupTag = tag.get(group.name);
-            if (groupTag instanceof CompoundTag compoundTag) group.fromTag(compoundTag);
+            NbtElement groupTag = tag.get(group.name);
+            if (groupTag instanceof NbtCompound compoundTag) group.fromTag(compoundTag);
         }
     }
 

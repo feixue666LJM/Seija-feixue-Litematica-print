@@ -1,8 +1,8 @@
 package com.kijinseija.seija_printer.utils.player;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.screen.ScreenHandler;
 
 /** Maps player inventory indices to the active container's slot ids. */
 public final class SlotUtils {
@@ -22,12 +22,12 @@ public final class SlotUtils {
     public static boolean isArmor(int index) { return index >= ARMOR_START && index <= ARMOR_END; }
 
     public static int indexToId(int index) {
-        Minecraft minecraft = Minecraft.getInstance();
+        MinecraftClient minecraft = MinecraftClient.getInstance();
         if (minecraft.player == null) return -1;
-        AbstractContainerMenu menu = minecraft.player.containerMenu;
+        ScreenHandler menu = minecraft.player.currentScreenHandler;
         if (menu == null) return -1;
 
-        if (menu instanceof InventoryMenu) {
+        if (menu instanceof PlayerScreenHandler) {
             if (isHotbar(index)) return 36 + index;
             if (isMain(index)) return index;
             if (isArmor(index)) return 8 - (index - ARMOR_START);
@@ -42,7 +42,7 @@ public final class SlotUtils {
         return -1;
     }
 
-    private static int findPlayerInventoryBase(AbstractContainerMenu menu) {
+    private static int findPlayerInventoryBase(ScreenHandler menu) {
         // Vanilla menus place the 36 player slots at the end. This also works
         // for custom menus that follow the same convention.
         int size = menu.slots.size();

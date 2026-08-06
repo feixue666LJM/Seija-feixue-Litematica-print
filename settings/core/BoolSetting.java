@@ -7,9 +7,9 @@ package com.kijinseija.seija_printer.settings.core;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import net.minecraft.nbt.CompoundTag;
-
 import java.util.function.Consumer;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public class BoolSetting extends Setting<Boolean> {
     protected BoolSetting(
@@ -31,14 +31,14 @@ public class BoolSetting extends Setting<Boolean> {
     }
 
     @Override
-    protected CompoundTag save(CompoundTag tag) {
+    protected NbtCompound save(NbtCompound tag) {
         tag.putBoolean("value", value);
         return tag;
     }
 
     @Override
-    protected Boolean load(CompoundTag tag) {
-        return tag.getBoolean("value").orElse(defaultValue);
+    protected Boolean load(NbtCompound tag) {
+        return tag.contains("value", NbtElement.NUMBER_TYPE) ? tag.getBoolean("value") : defaultValue;
     }
 
     @Override

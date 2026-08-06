@@ -8,14 +8,14 @@
 package com.kijinseija.seija_printer.settings.impl;
 
 import java.util.function.Consumer;
-
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.kijinseija.seija_printer.settings.obj.DoubleRange;
 import com.kijinseija.seija_printer.settings.core.IVisible;
 import com.kijinseija.seija_printer.settings.core.Setting;
-import net.minecraft.nbt.CompoundTag;
 
 public class DoubleRangeSetting extends Setting<DoubleRange> {
     public final double min, max;
@@ -63,15 +63,18 @@ public class DoubleRangeSetting extends Setting<DoubleRange> {
     }
 
     @Override
-    protected CompoundTag save(CompoundTag tag) {
+    protected NbtCompound save(NbtCompound tag) {
         tag.putDouble("value1", get().value1);
         tag.putDouble("value2", get().value2);
         return tag;
     }
 
     @Override
-    public DoubleRange load(CompoundTag tag) {
-        DoubleRange doubleRange = new DoubleRange(tag.getDouble("value1").orElse(0d),tag.getDouble("value2").orElse(0d));
+    public DoubleRange load(NbtCompound tag) {
+        DoubleRange doubleRange = new DoubleRange(
+            tag.contains("value1", NbtElement.NUMBER_TYPE) ? tag.getDouble("value1") : defaultValue.value1,
+            tag.contains("value2", NbtElement.NUMBER_TYPE) ? tag.getDouble("value2") : defaultValue.value2
+        );
         set(doubleRange);
         return get();
     }

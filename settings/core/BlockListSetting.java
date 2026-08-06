@@ -8,18 +8,17 @@ package com.kijinseija.seija_printer.settings.core;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.StringTag;
-import net.minecraft.nbt.Tag;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.block.Block;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import net.minecraft.block.Block;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtString;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 
 public class BlockListSetting extends Setting<List<Block>> {
     protected BlockListSetting(
@@ -45,7 +44,7 @@ public class BlockListSetting extends Setting<List<Block>> {
 
         for (String value : text.split(",")) {
             try {
-                blocks.add(BuiltInRegistries.BLOCK.getValue(Identifier.parse(value.trim())));
+                blocks.add(Registries.BLOCK.get(new Identifier(value.trim())));
             } catch (RuntimeException ignored) {
                 return null;
             }
@@ -64,19 +63,21 @@ public class BlockListSetting extends Setting<List<Block>> {
     }
 
     @Override
-    protected CompoundTag save(CompoundTag tag) {
-        ListTag list = new ListTag();
-        for (Block block : value) list.add(StringTag.valueOf(BuiltInRegistries.BLOCK.getKey(block).toString()));
+    protected NbtCompound save(NbtCompound tag) {
+        NbtList list = new NbtList();
+        for (Block block : value) list.add(NbtString.of(Registries.BLOCK.getId(block).toString()));
         tag.put("value", list);
         return tag;
     }
 
     @Override
-    protected List<Block> load(CompoundTag tag) {
+    protected List<Block> load(NbtCompound tag) {
+        if (!tag.contains("value", NbtElement.LIST_TYPE)) return copy(defaultValue);
+
         List<Block> blocks = new ArrayList<>();
-        for (Tag valueTag : tag.getListOrEmpty("value")) {
-            String id = valueTag.asString().orElse("");
-            if (!id.isEmpty()) blocks.add(BuiltInRegistries.BLOCK.getValue(Identifier.parse(id)));
+        for (NbtElement valueTag : tag.getList("value", NbtElement.STRING_TYPE)) {
+            String id = valueTag.asString();
+            if (!id.isEmpty()) blocks.add(Registries.BLOCK.get(new Identifier(id)));
         }
         return blocks;
     }
@@ -84,7 +85,7 @@ public class BlockListSetting extends Setting<List<Block>> {
     @Override
     public JsonElement toJson() {
         JsonArray json = new JsonArray();
-        for (Block block : value) json.add(new JsonPrimitive(BuiltInRegistries.BLOCK.getKey(block).toString()));
+        for (Block block : value) json.add(new JsonPrimitive(Registries.BLOCK.getId(block).toString()));
         return json;
     }
 
@@ -94,7 +95,7 @@ public class BlockListSetting extends Setting<List<Block>> {
         List<Block> blocks = new ArrayList<>();
         try {
             for (JsonElement element : json.getAsJsonArray()) {
-                blocks.add(BuiltInRegistries.BLOCK.getValue(Identifier.parse(element.getAsString())));
+                blocks.add(Registries.BLOCK.get(new Identifier(element.getAsString())));
             }
         } catch (RuntimeException ignored) {
             return false;
