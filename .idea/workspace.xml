@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="61bc41ed-479c-4291-9dd5-0701b40c6fd9" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/events/Render3DEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Addon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/render/Render3DEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/PrinterDebugScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/gui/PrinterDebugScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mixin/ChunkRendererSchematicVboMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/ChunkRendererSchematicVboMixin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mixin/ClientWorldAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/ClientWorldAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mixin/PistonBlockMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/PistonBlockMixin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mixin/SchematicVerifierMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/SchematicVerifierMixin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mixin/WTextBoxAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/WTextBoxAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/InitClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/InitClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/modules/ClientModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ClientModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/modules/ItemSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ItemSearcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/modules/PlaceDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/PlaceDebug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/modules/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/modules/RayTraceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/RayTraceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/modules/ScheDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ScheDebug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/AbstractFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/AbstractFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/FixerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/FixerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/CampFireFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/CampFireFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/DirtFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/DirtFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/FlowerPotFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/FlowerPotFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/ScaffoldFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/ScaffoldFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/SlabFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/SlabFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/StrippedFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/StrippedFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/AbstractClickFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/AbstractClickFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/DaylightDetectorFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/DaylightDetectorFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/DoorFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/DoorFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/LeverFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/LeverFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/NoteBlockFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/NoteBlockFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/RSTComparatorFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RSTComparatorFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/RSTRepeaterFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RSTRepeaterFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/RedStoneFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RedStoneFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/entity_placer/EntityPlacerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/entity_placer/EntityPlacerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/extra_setting/ExtraSettingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/extra_setting/ExtraSettingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/extra_setting/HasExtraSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/extra_setting/HasExtraSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/AbstractDataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/AbstractDataGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/PlaceDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/PlaceDataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/getter/BuckedDataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/getter/BuckedDataGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/BlockStateVerify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/BlockStateVerify.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/DataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/DataGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/FakePlacementContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/FakePlacementContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/ChestDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/ChestDecide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/Decide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/Decide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/FallingBlockDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/FallingBlockDecide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MainDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MainDecide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MultifaceGrowthDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MultifaceGrowthDecide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/SlabDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/SlabDecide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/task_manager/PrinterTaskManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/PrinterTaskManger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/task_manager/RotationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/RotationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/task_manager/RotationTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/RotationTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/task_manager/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/BlockReplaceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockReplaceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/BlockRotDataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockRotDataGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/BlockUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/DirSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/DirSorter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/InvUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/InvUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/PosSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/PosSorter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/PredictUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/PredictUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/RayTraceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RayTraceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/RenderHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RenderHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/RenderUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RenderUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/RotationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RotationUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/ScheVerifyMixinUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/ScheVerifyMixinUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/SeijaTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SeijaTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/SeijaUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SeijaUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/ShadyRotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/ShadyRotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/SurfaceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SurfaceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/DirData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/DirData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/DirDataI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/DirDataI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/PlaceData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PlaceData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/PlaceDataPack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PlaceDataPack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/PosInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PosInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/RotationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/RotationData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render/ShapeMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/render/ShapeMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/seija_printer/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/seija_printer/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/seija_printer/lang/zh_cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/lang/zh_cn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/rebel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/rebel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/seija-printer.accesswidener" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/seija-printer.accesswidener" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/seija-printer.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/seija-printer.mixins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/PrinterSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/PrinterSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/BlockListSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BlockListSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/BlockPosSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BlockPosSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/BoolSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BoolSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/ColorSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/ColorSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/DoubleSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/DoubleSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/EnumSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/EnumSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/IVisible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/IVisible.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/IntSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/IntSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/RainbowColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/RainbowColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Setting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/SettingColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/SettingColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/SettingGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/SettingGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/core/StringSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/StringSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/impl/BlockReplaceSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/BlockReplaceSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/impl/BlockReplaceSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/BlockReplaceSettingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/impl/DirectionListSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DirectionListSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/impl/DirectionListSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DirectionListSettingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/impl/DoubleRangeSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DoubleRangeSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/impl/SettingsSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/SettingsSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/impl/SettingsSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/SettingsSettingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/obj/DoubleRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/obj/DoubleRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/widgets/WSelectedCountLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/WSelectedCountLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/widgets/input/WDoubleRangeEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WDoubleRangeEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/widgets/input/WIntRangeEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WIntRangeEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/widgets/input/WRangeSlider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WRangeSlider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/player/ChatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/ChatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/player/FindItemResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/FindItemResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/player/InvUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/InvUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/player/Rotations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/Rotations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/player/SlotUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/SlotUtils.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="seija-printer" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="seija-printer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="seija-printer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="seija-printer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="fabric" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0390103296531754" />
+      <entry key="MS500" value="1.5226800501025823" />
+      <entry key="S2" value="1.8502741600641959" />
+      <entry key="S5" value="1.9371812526712149" />
+      <entry key="S10" value="1.968081222145753" />
+      <entry key="S30" value="1.9892451553579034" />
+      <entry key="S60" value="1.9946084833750506" />
+      <entry key="M2" value="1.997965875958191" />
+      <entry key="M5" value="2.0557318621056795" />
+      <entry key="M10" value="2.303374184969442" />
+      <entry key="M15" value="2.589667125542846" />
+      <entry key="M30" value="3.257197585724551" />
+      <entry key="H1" value="3.9136557034863104" />
+      <entry key="H2" value="4.387197104408779" />
+      <entry key="H4" value="4.673653837369727" />
+      <entry key="D1" value="4.9425914037895575" />
+      <entry key="W1" value="4.99172140196749" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="3.792807427656574E-191" />
+      <entry key="S5" value="6.785538471461622E-77" />
+      <entry key="S10" value="8.237437994584009E-39" />
+      <entry key="S30" value="2.0195939119785325E-13" />
+      <entry key="S60" value="4.4939892211469895E-7" />
+      <entry key="M2" value="6.703722265388826E-4" />
+      <entry key="M5" value="0.05376831234863545" />
+      <entry key="M10" value="0.2318799524509082" />
+      <entry key="M15" value="0.3774349693658742" />
+      <entry key="M30" value="0.6143573629133732" />
+      <entry key="H1" value="0.7838095195347995" />
+      <entry key="H2" value="0.8853301754344531" />
+      <entry key="H4" value="0.940919856010305" />
+      <entry key="D1" value="0.9899017808904661" />
+      <entry key="W1" value="0.9985511146497755" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.0036178235401818" />
+      <entry key="MS500" value="1.5121621307085644" />
+      <entry key="S2" value="1.8470706556975738" />
+      <entry key="S5" value="1.935838966202475" />
+      <entry key="S10" value="1.9673992553532973" />
+      <entry key="S30" value="1.989015362019925" />
+      <entry key="S60" value="1.9944937158696103" />
+      <entry key="M2" value="1.9985732042312152" />
+      <entry key="M5" value="2.1093002945975203" />
+      <entry key="M10" value="2.5348280766464297" />
+      <entry key="M15" value="2.966613990393733" />
+      <entry key="M30" value="3.871118093701371" />
+      <entry key="H1" value="4.697167256415913" />
+      <entry key="H2" value="5.272352281057548" />
+      <entry key="H4" value="5.614478716754814" />
+      <entry key="D1" value="5.932476222087777" />
+      <entry key="W1" value="5.990270064313924" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3HXb3dvvWicr9PiQZfHEesgUExq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Seija-feixue-Litematica-print [build].executor": "Run",
+    "Gradle.Seija-feixue-Litematica-print [runClient].executor": "Run",
+    "Gradle.Seija-feixue-Litematica-print [runServer].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/adzc/桌面/Seija-feixue-Litematica-print",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adzc\桌面\Seija-feixue-Litematica-print\src\main\java" />
+      <recent name="C:\Users\adzc\桌面\Seija-feixue-Litematica-print\src\main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.Seija-feixue-Litematica-print [build]">
+    <configuration name="Seija-feixue-Litematica-print [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Seija-feixue-Litematica-print [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runClient" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Seija-feixue-Litematica-print [runServer]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runServer" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Seija-feixue-Litematica-print [build]" />
+        <item itemvalue="Gradle.Seija-feixue-Litematica-print [runClient]" />
+        <item itemvalue="Gradle.Seija-feixue-Litematica-print [runServer]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="61bc41ed-479c-4291-9dd5-0701b40c6fd9" name="更改" comment="" />
+      <created>1786017163617</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1786017163617</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

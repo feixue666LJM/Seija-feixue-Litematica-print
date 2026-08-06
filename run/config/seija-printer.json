@@ -1,0 +1,114 @@
+{
+  "General": {},
+  "BasicCalc": {
+    "PrintingRange": 4.7,
+    "PrintingYRange": {
+      "value1": -3.0,
+      "value2": 4.0
+    },
+    "AntiReplaceTime": 150.0,
+    "PrintingDelay": {
+      "value1": 100.0,
+      "value2": 150.0
+    },
+    "BlockPreTick": 1,
+    "Air-Place": false,
+    "LiquidInteract": false
+  },
+  "AC-Bypass": {
+    "Rotate": true,
+    "Strict Direction": true,
+    "Sort Dir": true,
+    "Strict ClickVec": true,
+    "RandomOffsetVec": true,
+    "Extra Vec Calc": false,
+    "rayTrace": true,
+    "ignoreEntityRay": false
+  },
+  "Sort": {
+    "angleMode": "LOW",
+    "DistanceMode": "HIGH"
+  },
+  "ItemSwitch": {
+    "InvSwitchMode": "SWAP",
+    "AntiWrongBlock": false,
+    "IndirectInvSwap": false,
+    "InvSwapSlot": "4,5,6,7,8"
+  },
+  "AdvancedSettings": {
+    "illegalRotate": false,
+    "RotatePredTick": 1,
+    "SneakPlace": true,
+    "PacketRotate": false,
+    "PacketPlace": false,
+    "SurfaceMode": "CHEBYSHEV",
+    "SurfaceSize": 0,
+    "BridgeMode": false,
+    "BridgeBlocks": [
+      "minecraft:slime_block"
+    ],
+    "BridgeDirection": [
+      "up"
+    ],
+    "BlackList": [],
+    "enablePrecisionPlace": true,
+    "TryVanillaPrecision": true,
+    "ExtraSetting": {
+      "General": {},
+      "BlockFixer": {
+        "ScaffoldFix": true,
+        "SlabFix": true,
+        "DirtFix": true,
+        "DoorFix": true,
+        "DaylightDetectorFix": true,
+        "LeverFix": true,
+        "ComparatorFix": true,
+        "RepeaterFix": true,
+        "FlowerPotFix": true,
+        "CampFireFix": true,
+        "NoteBlockFix": false,
+        "LogFix": true,
+        "RedStondFix": true
+      },
+      "PlaceDataGetter": {
+        "EnableLavaPlace": false,
+        "EnableWaterPlace": false
+      },
+      "BlockDecide": {
+        "avoid-block-fall": true
+      }
+    }
+  },
+  "Rendering": {
+    "RenderMode": "MULTI",
+    "renderTime": 500.0,
+    "AnimationSpeed": 10.0,
+    "SizeExpandMultiplier": 1.5,
+    "SizeShrinkMultiplier": 1.0,
+    "rainbowSpeed": 1.0,
+    "com.seija.printer.render-fill": true,
+    "fill-color": {
+      "r": 95,
+      "g": 190,
+      "b": 100,
+      "a": 255,
+      "rainbow": false
+    },
+    "outline": true,
+    "outLine-color": {
+      "r": 95,
+      "g": 190,
+      "b": 255,
+      "a": 255,
+      "rainbow": false
+    }
+  },
+  "debug": {
+    "RunSpeed": false,
+    "block-list-size": false
+  },
+  "ReplaceBlock": {
+    "enableReplace": true,
+    "replace-block-mapping": []
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "General": {
+    "steal-delay": {
+      "value1": 100.0,
+      "value2": 200.0
+    }
+  }
+}

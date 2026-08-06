@@ -1,0 +1,19 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:grass_block": 13
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 1678,
+      "minecraft:time_since_rest": 1255,
+      "minecraft:walk_one_cm": 553,
+      "minecraft:total_world_time": 1656,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 8618,
+      "minecraft:play_time": 1255,
+      "minecraft:jump": 34,
+      "minecraft:time_since_death": 1255
+    }
+  },
+  "DataVersion": 4790
+}

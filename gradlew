@@ -164,7 +164,7 @@ fi
 #   * args from the command line
 #   * the main class name
 #   * -classpath
-#   * -D...appname settings
+#   * -D...appname com.seija.printer.settings
 #   * --module-path (only if needed)
 #   * DEFAULT_JVM_OPTS, JAVA_OPTS, and GRADLE_OPTS environment variables.
 
