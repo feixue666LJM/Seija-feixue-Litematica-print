@@ -12,10 +12,10 @@ import com.kijinseija.seija_printer.print_main.printer.extra_setting.ExtraSettin
 import com.kijinseija.seija_printer.print_main.printer.extra_setting.HasExtraSetting;
 import com.kijinseija.seija_printer.settings.core.SettingGroup;
 import com.kijinseija.seija_printer.settings.core.Settings;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.state.BlockState;
 import java.util.ArrayList;
 import java.util.List;
+import net.minecraft.block.BlockState;
+import net.minecraft.util.math.BlockPos;
 
 public class FixerManager implements HasExtraSetting {
 

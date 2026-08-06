@@ -10,8 +10,8 @@ import com.kijinseija.seija_printer.settings.core.BlockPosSetting;
 import com.kijinseija.seija_printer.settings.core.Setting;
 import com.kijinseija.seija_printer.settings.core.SettingGroup;
 import com.kijinseija.seija_printer.utils.player.ChatUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
 
 public class ScheDebug extends ClientModule {
     public ScheDebug() {
@@ -24,6 +24,6 @@ public class ScheDebug extends ClientModule {
 
     @Override
     public void onActivate() {
-        ChatUtils.sendMsg(Component.nullToEmpty(BlockReplaceUtils.INSTANCE.getScheState(posSetting.get()).getBlock().toString()));
+        ChatUtils.sendMsg(Text.of(BlockReplaceUtils.INSTANCE.getScheState(posSetting.get()).getBlock().toString()));
     }
 }

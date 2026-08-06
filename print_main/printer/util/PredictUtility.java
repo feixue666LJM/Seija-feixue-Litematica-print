@@ -13,29 +13,28 @@ import com.mojang.authlib.GameProfile;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.GameType;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 
 public class PredictUtility {
-    static Minecraft mc = Minecraft.getInstance();
-    public static Player predictPlayer(Player entity, int ticks) {
+    static MinecraftClient mc = MinecraftClient.getInstance();
+    public static PlayerEntity predictPlayer(PlayerEntity entity, int ticks) {
         if (ticks<=0)return entity;
-        Vec3 posVec = new Vec3(entity.getX(), entity.getY(), entity.getZ());
-        double motionX = entity.getX() - entity.xo;
-        double motionY = entity.getY() - entity.yo;
-        double motionZ = entity.getZ() - entity.zo;
+        Vec3d posVec = new Vec3d(entity.getX(), entity.getY(), entity.getZ());
+        double motionX = entity.getX() - entity.prevX;
+        double motionY = entity.getY() - entity.prevY;
+        double motionZ = entity.getZ() - entity.prevZ;
         for (int i = 0; i < ticks; ++i) {
-            if (!mc.level.isEmptyBlock(BlockPos.containing(posVec.add(0.0, motionY, 0.0)))) {
+            if (!mc.world.isAir(BlockPos.ofFloored(posVec.add(0.0, motionY, 0.0)))) {
                 motionY = 0.0;
             }
-            if (!mc.level.isEmptyBlock(BlockPos.containing(posVec.add(motionX, 0.0, 0.0))) || !mc.level.isEmptyBlock(BlockPos.containing(posVec.add(motionX, 1.0, 0.0)))) {
+            if (!mc.world.isAir(BlockPos.ofFloored(posVec.add(motionX, 0.0, 0.0))) || !mc.world.isAir(BlockPos.ofFloored(posVec.add(motionX, 1.0, 0.0)))) {
                 motionX = 0.0;
             }
-            if (!mc.level.isEmptyBlock(BlockPos.containing(posVec.add(0.0, 0.0, motionZ))) || !mc.level.isEmptyBlock(BlockPos.containing(posVec.add(0.0, 1.0, motionZ)))) {
+            if (!mc.world.isAir(BlockPos.ofFloored(posVec.add(0.0, 0.0, motionZ))) || !mc.world.isAir(BlockPos.ofFloored(posVec.add(0.0, 1.0, motionZ)))) {
                 motionZ = 0.0;
             }
             posVec = posVec.add(motionX, motionY, motionZ);
@@ -43,23 +42,23 @@ public class PredictUtility {
         return PredictUtility.equipAndReturn(entity, posVec);
     }
 
-    public static Vec3 getPredPlayerVec(){
+    public static Vec3d getPredPlayerVec(){
         return predictPlayerVec(mc.player, Printer.getINSTANCE().iSetPredTick.get());
     }
-    public static Vec3 predictPlayerVec(Player entity, int ticks) {
+    public static Vec3d predictPlayerVec(PlayerEntity entity, int ticks) {
         //if (ticks<=0)return entity;
-        Vec3 posVec = new Vec3(entity.getX(), entity.getY(), entity.getZ());
-        double motionX = entity.getX() - entity.xo;
-        double motionY = entity.getY() - entity.yo;
-        double motionZ = entity.getZ() - entity.zo;
+        Vec3d posVec = new Vec3d(entity.getX(), entity.getY(), entity.getZ());
+        double motionX = entity.getX() - entity.prevX;
+        double motionY = entity.getY() - entity.prevY;
+        double motionZ = entity.getZ() - entity.prevZ;
         for (int i = 0; i < ticks; ++i) {
-            if (!mc.level.isEmptyBlock(BlockPos.containing(posVec.add(0.0, motionY, 0.0)))) {
+            if (!mc.world.isAir(BlockPos.ofFloored(posVec.add(0.0, motionY, 0.0)))) {
                 motionY = 0.0;
             }
-            if (!mc.level.isEmptyBlock(BlockPos.containing(posVec.add(motionX, 0.0, 0.0))) || !mc.level.isEmptyBlock(BlockPos.containing(posVec.add(motionX, 1.0, 0.0)))) {
+            if (!mc.world.isAir(BlockPos.ofFloored(posVec.add(motionX, 0.0, 0.0))) || !mc.world.isAir(BlockPos.ofFloored(posVec.add(motionX, 1.0, 0.0)))) {
                 motionX = 0.0;
             }
-            if (!mc.level.isEmptyBlock(BlockPos.containing(posVec.add(0.0, 0.0, motionZ))) || !mc.level.isEmptyBlock(BlockPos.containing(posVec.add(0.0, 1.0, motionZ)))) {
+            if (!mc.world.isAir(BlockPos.ofFloored(posVec.add(0.0, 0.0, motionZ))) || !mc.world.isAir(BlockPos.ofFloored(posVec.add(0.0, 1.0, motionZ)))) {
                 motionZ = 0.0;
             }
             posVec = posVec.add(motionX, motionY, motionZ);
@@ -68,36 +67,43 @@ public class PredictUtility {
         //return PredictUtility.equipAndReturn(entity, posVec);
     }
 
-    public static Player equipAndReturn(Player original, Vec3 posVec) {
-        Player copyEntity = new Player(mc.level, new GameProfile(UUID.fromString("66123666-1234-5432-6666-667563866600"), "PredictEntity339")){
+    public static PlayerEntity equipAndReturn(PlayerEntity original, Vec3d posVec) {
+        PlayerEntity copyEntity = new PlayerEntity(mc.world, BlockPos.ORIGIN, 0.0F,
+            new GameProfile(UUID.fromString("66123666-1234-5432-6666-667563866600"), "PredictEntity339")){
 
 
             @Override
-            public GameType gameMode() {
-                return GameType.SURVIVAL;
+            public boolean isSpectator() {
+                return false;
+            }
+
+            @Override
+            public boolean isCreative() {
+                return false;
             }
         };
 
-        copyEntity.setPos(posVec);
+        copyEntity.setPosition(posVec);
         copyEntity.setHealth(original.getHealth());
-        copyEntity.xo = original.xo;
-        copyEntity.zo = original.zo;
-        copyEntity.yo = original.yo;
-        copyEntity.getInventory().replaceWith(original.getInventory());
-        copyEntity.setYRot(original.getYRot());
-        copyEntity.setXRot(original.getXRot());
-        copyEntity.yRotO = original.yRotO;
-        copyEntity.yHeadRot = original.yHeadRot;
-        copyEntity.yBodyRot = original.yBodyRot;
-        copyEntity.yHeadRotO = original.yHeadRotO;
-        copyEntity.xRotO = original.xRotO;
-        for (MobEffectInstance se : original.getActiveEffects()) {
-            copyEntity.addEffect(se);
+        copyEntity.prevX = original.prevX;
+        copyEntity.prevZ = original.prevZ;
+        copyEntity.prevY = original.prevY;
+        copyEntity.getInventory().clone(original.getInventory());
+        copyEntity.setYaw(original.getYaw());
+        copyEntity.setPitch(original.getPitch());
+        copyEntity.prevYaw = original.prevYaw;
+        copyEntity.headYaw = original.headYaw;
+        copyEntity.bodyYaw = original.bodyYaw;
+        copyEntity.prevHeadYaw = original.prevHeadYaw;
+        copyEntity.prevBodyYaw = original.prevBodyYaw;
+        copyEntity.prevPitch = original.prevPitch;
+        for (StatusEffectInstance se : original.getStatusEffects()) {
+            copyEntity.addStatusEffect(se);
         }
         return copyEntity;
     }
 
-    public static Vec3 clone(Vec3 v) {
-        return new Vec3(v.x(), v.y(), v.z());
+    public static Vec3d clone(Vec3d v) {
+        return new Vec3d(v.getX(), v.getY(), v.getZ());
     }
 }

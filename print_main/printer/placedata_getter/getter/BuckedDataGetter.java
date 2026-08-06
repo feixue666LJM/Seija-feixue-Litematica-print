@@ -14,43 +14,42 @@ import com.kijinseija.seija_printer.print_main.printer.util.records.PlaceData;
 import com.kijinseija.seija_printer.print_main.printer.util.records.RotationData;
 import com.kijinseija.seija_printer.settings.core.BoolSetting;
 import com.kijinseija.seija_printer.settings.core.Setting;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.level.block.AirBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.block.AirBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FluidBlock;
+import net.minecraft.block.Waterloggable;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.state.property.Properties;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 
 public class BuckedDataGetter extends AbstractDataGetter {
-    private static final Minecraft mc = Minecraft.getInstance();
+    private static final MinecraftClient mc = MinecraftClient.getInstance();
 
     @Override
     public PlaceData getData(BlockState needState, DirData dirData) {
         BlockPos placePos = dirData.placePos();
 //        BlockState nowState = mc.world.getBlockState(placePos);
         for (Direction offsetDir : dirData.dirs()) {
-            BlockState helpState = mc.level.getBlockState(placePos.relative(offsetDir));
-            if (needState.getBlock().equals(Blocks.WATER) && helpState.getBlock() instanceof SimpleWaterloggedBlock && !helpState.getValue(BlockStateProperties.WATERLOGGED)) {
+            BlockState helpState = mc.world.getBlockState(placePos.offset(offsetDir));
+            if (needState.getBlock().equals(Blocks.WATER) && helpState.getBlock() instanceof Waterloggable && !helpState.get(Properties.WATERLOGGED)) {
                 continue;
             }
-            for (Vec3 clickVec : dirData.clickVecs(offsetDir, new DirData.DirDataConfig().setRaytrace(true).setStrictVec(true))) {
-                return new PlaceData(placePos.relative(offsetDir), offsetDir.getOpposite(), clickVec, true,
+            for (Vec3d clickVec : dirData.clickVecs(offsetDir, new DirData.DirDataConfig().setRaytrace(true).setStrictVec(true))) {
+                return new PlaceData(placePos.offset(offsetDir), offsetDir.getOpposite(), clickVec, true,
                     ( RotationData.fromVec(clickVec)), () -> {
                     BlockHitResult blockHitResult = RayTraceUtil.INSTANCE.rayHitRes
-                        (mc.player.getEyePosition(),  RotationData.build(BlockStateVerify.sendYaw,
+                        (mc.player.getEyePos(),  RotationData.build(BlockStateVerify.sendYaw,
                                 BlockStateVerify.sendPitch), false,
-                            mc.player.getAttributeValue(Attributes.BLOCK_INTERACTION_RANGE));
+                            mc.interactionManager == null ? 4.5D : mc.interactionManager.getReachDistance());
 //                    ChatUtils.info(blockHitResult.getType() + "  " + blockHitResult.getBlockPos());
 //                    ChatUtils.info();
-                    return blockHitResult.getType().equals(HitResult.Type.BLOCK) && blockHitResult.getBlockPos().equals(placePos.relative(offsetDir));
+                    return blockHitResult.getType().equals(HitResult.Type.BLOCK) && blockHitResult.getBlockPos().equals(placePos.offset(offsetDir));
 
                 });
 //                return  PlaceData.newInstance(placePos.offset(offsetDir), offsetDir.getOpposite(), clickVec, true
@@ -63,16 +62,16 @@ public class BuckedDataGetter extends AbstractDataGetter {
     @Override
     public boolean isSuitable(BlockState needState, BlockPos pos) {
         Block block = needState.getBlock();
-        BlockState worldState = mc.level.getBlockState(pos);
-        return (((block instanceof LiquidBlock)
+        BlockState worldState = mc.world.getBlockState(pos);
+        return (((block instanceof FluidBlock)
             && ((bSetEnableWater.get() && block.equals(Blocks.WATER))
             || (bSetEnableLava.get() && block.equals(Blocks.LAVA)))
-            && (needState.getValue(BlockStateProperties.LEVEL) == 0))
+            && (needState.get(Properties.LEVEL_15) == 0))
 //            ||((bSetEnablePowderSnow.get()
 //            && block.equals(Blocks.POWDER_SNOW)))
         )
             && (worldState.getBlock() instanceof AirBlock//空气直接放
-            || (worldState.getBlock().equals(block) && worldState.getValue(BlockStateProperties.LEVEL) > 0));//同液体非源头
+            || (worldState.getBlock().equals(block) && worldState.get(Properties.LEVEL_15) > 0));//同液体非源头
     }
 
     private final Setting<Boolean> bSetEnableLava = new BoolSetting.Builder().name("EnableLavaPlace")

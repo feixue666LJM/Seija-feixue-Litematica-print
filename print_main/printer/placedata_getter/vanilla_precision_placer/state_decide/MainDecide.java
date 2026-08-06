@@ -10,12 +10,12 @@ import com.kijinseija.seija_printer.settings.core.Setting;
 import com.kijinseija.seija_printer.settings.core.SettingGroup;
 import com.kijinseija.seija_printer.settings.core.Settings;
 import com.kijinseija.seija_printer.utils.player.ChatUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.Property;
 import java.util.ArrayList;
 import java.util.List;
+import net.minecraft.block.BlockState;
+import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.Property;
+import net.minecraft.util.math.BlockPos;
 
 public class MainDecide implements HasExtraSetting {
     public static final MainDecide INSTANCE = new MainDecide();
@@ -29,10 +29,10 @@ public class MainDecide implements HasExtraSetting {
     }
 
     public static Property[] props = new Property[]{
-        BlockStateProperties.FACING, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.HALF
-        , BlockStateProperties.DOOR_HINGE, BlockStateProperties.AXIS, BlockStateProperties.BELL_ATTACHMENT
-        , BlockStateProperties.FACING_HOPPER, BlockStateProperties.ROTATION_16, BlockStateProperties.ATTACH_FACE
-        , BlockStateProperties.CHEST_TYPE, BlockStateProperties.SLAB_TYPE, BlockStateProperties.ORIENTATION
+        Properties.FACING, Properties.HORIZONTAL_FACING, Properties.BLOCK_HALF
+        , Properties.DOOR_HINGE, Properties.AXIS, Properties.ATTACHMENT
+        , Properties.HOPPER_FACING, Properties.ROTATION
+        , Properties.CHEST_TYPE, Properties.SLAB_TYPE
     };
 
     public boolean test(BlockState needState, BlockState nowState, BlockPos placePos) {
@@ -72,11 +72,11 @@ public class MainDecide implements HasExtraSetting {
             Comparable need = null;
 
             try {
-                now = nowState.getValue(property);
+                now = nowState.get(property);
             } catch (IllegalArgumentException ignored) {
             }
             try {
-                need = needState.getValue(property);
+                need = needState.get(property);
             } catch (IllegalArgumentException ignored) {
             }
 

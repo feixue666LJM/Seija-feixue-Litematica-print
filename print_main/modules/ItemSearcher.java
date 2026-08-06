@@ -14,20 +14,19 @@ import com.kijinseija.seija_printer.settings.obj.DoubleRange;
 import com.kijinseija.seija_printer.utils.player.ChatUtils;
 import com.kijinseija.seija_printer.utils.player.InvUtils;
 import fi.dy.masa.litematica.world.SchematicWorldHandler;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ChestMenu;
-import net.minecraft.world.inventory.ShulkerBoxMenu;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.GenericContainerScreenHandler;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ShulkerBoxScreenHandler;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
 
 /** Schematic material analyser and optional container material collector. */
 public final class ItemSearcher extends ClientModule {
@@ -71,14 +70,14 @@ public final class ItemSearcher extends ClientModule {
         BlockPos first = point1.get();
         BlockPos second = point2.get();
         if (first == null || second == null) {
-            ChatUtils.sendMsg(CHAT_PREFIX, Component.literal("Set both analysis corners first."));
+            ChatUtils.sendMsg(CHAT_PREFIX, Text.literal("Set both analysis corners first."));
             return;
         }
 
         Thread previous = schematicAnalysis;
         if (previous != null) previous.interrupt();
 
-        Thread analysis = new Thread(() -> analysisArea(first.immutable(), second.immutable()),
+        Thread analysis = new Thread(() -> analysisArea(first.toImmutable(), second.toImmutable()),
             "seija-printer-material-analysis");
         analysis.setDaemon(true);
         schematicAnalysis = analysis;
@@ -90,12 +89,12 @@ public final class ItemSearcher extends ClientModule {
         if (!isActive()) return;
 
         blockInfo.forEach((block, count) -> {
-            MutableComponent message = Component.literal("Block: ")
-                .append(Component.translatable(block.getDescriptionId()))
+            MutableText message = Text.literal("Block: ")
+                .append(Text.translatable(block.getTranslationKey()))
                 .append(" Count: ");
             if (count / 64 > 0) {
-                message.append(Component.literal(Integer.toString(count / 64)))
-                    .append(Component.literal(" *64 ").withColor(0x87CAFF))
+                message.append(Text.literal(Integer.toString(count / 64)))
+                    .append(Text.literal(" *64 ").styled(style -> style.withColor(0x87CAFF)))
                     .append("+ ");
             }
             message.append(Integer.toString(count % 64));
@@ -104,28 +103,36 @@ public final class ItemSearcher extends ClientModule {
     }
 
     private void analysisArea(BlockPos first, BlockPos second) {
-        if (mc.level == null || mc.player == null || SchematicWorldHandler.getSchematicWorld() == null) {
+        if (mc.world == null || mc.player == null || SchematicWorldHandler.getSchematicWorld() == null) {
             sendStatus("No world or schematic is loaded.");
             return;
         }
 
         blockInfo.clear();
-        BlockPos min = BlockPos.min(first, second);
-        BlockPos max = BlockPos.max(first, second);
+        BlockPos min = new BlockPos(
+            Math.min(first.getX(), second.getX()),
+            Math.min(first.getY(), second.getY()),
+            Math.min(first.getZ(), second.getZ())
+        );
+        BlockPos max = new BlockPos(
+            Math.max(first.getX(), second.getX()),
+            Math.max(first.getY(), second.getY()),
+            Math.max(first.getZ(), second.getZ())
+        );
 
         try {
-            for (BlockPos position : BlockPos.betweenClosed(min, max)) {
+            for (BlockPos position : BlockPos.iterate(min, max)) {
                 if (Thread.currentThread().isInterrupted()) {
                     sendStatus("Analysis stopped.");
                     return;
                 }
-                if (mc.level == null || !BlockUtil.blockposFilter(position)) continue;
+                if (mc.world == null || !BlockUtil.blockposFilter(position)) continue;
 
                 Block schematicBlock = BlockReplaceUtils.getScheStateNonReplace(position).getBlock();
                 if (BlockUtil.isCanPlaceInBlock(schematicBlock)) continue;
                 if (ScheVerifyMixinUtil.isReplacedBlockEqual(
                     schematicBlock,
-                    mc.level.getBlockState(position).getBlock()
+                    mc.world.getBlockState(position).getBlock()
                 )) continue;
 
                 blockInfo.merge(schematicBlock, 1, Integer::sum);
@@ -141,7 +148,7 @@ public final class ItemSearcher extends ClientModule {
     }
 
     private void sendStatus(String text) {
-        mc.execute(() -> ChatUtils.sendMsg(CHAT_PREFIX, Component.literal(text)));
+        mc.execute(() -> ChatUtils.sendMsg(CHAT_PREFIX, Text.literal(text)));
     }
 
     private void updateStealInfo() {
@@ -149,8 +156,8 @@ public final class ItemSearcher extends ClientModule {
         stealBlockInfo.putAll(blockInfo);
         if (mc.player == null) return;
 
-        for (int index = 0; index < mc.player.getInventory().getContainerSize(); index++) {
-            ItemStack stack = mc.player.getInventory().getItem(index);
+        for (int index = 0; index < mc.player.getInventory().size(); index++) {
+            ItemStack stack = mc.player.getInventory().getStack(index);
             decreaseItemCount(needSteal(stack.getItem()), stack.getCount());
         }
     }
@@ -183,8 +190,8 @@ public final class ItemSearcher extends ClientModule {
     public void onClientTick() {
         if (mc.player == null) return;
 
-        AbstractContainerMenu menu = mc.player.containerMenu;
-        boolean containerOpen = menu instanceof ChestMenu || menu instanceof ShulkerBoxMenu;
+        ScreenHandler menu = mc.player.currentScreenHandler;
+        boolean containerOpen = menu instanceof GenericContainerScreenHandler || menu instanceof ShulkerBoxScreenHandler;
         if (containerWasOpen && !containerOpen) updateStealInfo();
         containerWasOpen = containerOpen;
 
@@ -198,10 +205,10 @@ public final class ItemSearcher extends ClientModule {
         }
     }
 
-    private boolean stealChest(AbstractContainerMenu menu) {
+    private boolean stealChest(ScreenHandler menu) {
         int containerSlots = Math.max(0, menu.slots.size() - 36);
         while (containerSlot < containerSlots) {
-            ItemStack stack = menu.getSlot(containerSlot).getItem();
+            ItemStack stack = menu.getSlot(containerSlot).getStack();
             Block block = needSteal(stack.getItem());
             if (block != null) {
                 decreaseItemCount(block, stack.getCount());

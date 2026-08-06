@@ -10,22 +10,22 @@ import com.kijinseija.seija_printer.print_main.modules.Printer;
 import com.kijinseija.seija_printer.utils.player.ChatUtils;
 import com.kijinseija.seija_printer.utils.player.FindItemResult;
 import com.kijinseija.seija_printer.utils.player.InvUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Predicate;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 
 
 public class InvUtil {
-    private final static Minecraft mc = Minecraft.getInstance();
+    private final static MinecraftClient mc = MinecraftClient.getInstance();
     private final static Printer pri = Printer.getINSTANCE();
 
     private static void invSwitch(int slot, int hotbarSlot) {
@@ -51,14 +51,14 @@ public class InvUtil {
         FindItemResult resHot = InvUtils.findInHotbar(p);
         if (resHot.found()) {
             InvUtils.swap(resHot.slot(), false);
-            if ((!pri.bSetAntiWrongBlock.get()) || p.test(mc.player.getMainHandItem()))
+            if ((!pri.bSetAntiWrongBlock.get()) || p.test(mc.player.getMainHandStack()))
                 return true;
             return false;
         }
         if (isCreativeMode()&&b!=null) {
 
            // mc.player.getInventory().(mc.player.getStackInHand(Hand.MAIN_HAND));
-            mc.gameMode.handleCreativeModeItemAdd(new ItemStack(b,1),
+            mc.interactionManager.clickCreativeStack(new ItemStack(b,1),
                 36 + getSlot());
 
         } else {
@@ -75,7 +75,7 @@ public class InvUtil {
     }
 
     public static int getInvSwapSlot() {
-        int selSlot = mc.player.getInventory().getSelectedSlot();
+        int selSlot = mc.player.getInventory().selectedSlot;
         if (pri.bSetIndirectInvSwap.get()) {
             return getSlot();
         }
@@ -87,7 +87,7 @@ public class InvUtil {
 
     public static int getSlot() {
         List<Integer> usefulSlots = getUsefulSlots();
-        int selSlot = mc.player.getInventory().getSelectedSlot();
+        int selSlot = mc.player.getInventory().selectedSlot;
         if (usefulSlots.size() > 1) usefulSlots.remove(Integer.valueOf(selSlot));
         if (usefulSlots.size() > 0) {
             if (i >= usefulSlots.size()) i = 0;
@@ -101,8 +101,8 @@ public class InvUtil {
             return getUsefulSlots(pri.sSetInvSwapSlot.get());
         } catch (Exception e) {
             pri.sSetInvSwapSlot.reset();
-            ChatUtils.sendMsg(Component.nullToEmpty(e.getMessage()));
-            ChatUtils.sendMsg(Component.nullToEmpty("检测到异常: 数据不符合格式 自动处理:已自动还原为默认数据"));
+            ChatUtils.sendMsg(Text.of(e.getMessage()));
+            ChatUtils.sendMsg(Text.of("检测到异常: 数据不符合格式 自动处理:已自动还原为默认数据"));
         }
         return getUsefulSlots(pri.sSetInvSwapSlot.defaultValue);
     }
@@ -145,10 +145,10 @@ public class InvUtil {
         if (b.equals(Blocks.WATER)) return Items.WATER_BUCKET;
         if (b.equals(Blocks.LAVA)) return Items.LAVA_BUCKET;
         if (b.equals(Blocks.POWDER_SNOW)) return Items.POWDER_SNOW_BUCKET;
-        return Item.BY_BLOCK.get(b);
+        return Item.BLOCK_ITEMS.get(b);
     }
 
     public static boolean isCreativeMode() {
-        return mc.player.getAbilities().instabuild;
+        return mc.player.getAbilities().creativeMode;
     }
 }

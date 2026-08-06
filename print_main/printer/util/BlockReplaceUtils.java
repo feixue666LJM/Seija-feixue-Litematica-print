@@ -8,13 +8,19 @@ package com.kijinseija.seija_printer.print_main.printer.util;
 import com.kijinseija.seija_printer.print_main.modules.Printer;
 import fi.dy.masa.litematica.world.SchematicWorldHandler;
 import com.kijinseija.seija_printer.utils.player.InvUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.DirtPathBlock;
+import net.minecraft.block.FarmlandBlock;
+import net.minecraft.block.FlowerPotBlock;
+import net.minecraft.block.PillarBlock;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.Item;
+import net.minecraft.state.property.Property;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.block.*;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -46,10 +52,10 @@ public class BlockReplaceUtils {
 
     public BlockState replaceState(BlockState state, BlockPos pos) {
 
-        BlockState repState = needBlockReplace(state, pos, true).defaultBlockState();
+        BlockState repState = needBlockReplace(state, pos, true).getDefaultState();
         try {
             for (Property property : state.getProperties()) {
-                repState = repState.setValue(property, state.getValue(property));
+                repState = repState.with(property, state.get(property));
             }
         } catch (Exception ignored) {
 
@@ -72,7 +78,7 @@ public class BlockReplaceUtils {
         blocks = getReplaceBlocks(bs.getBlock());
         if (blocks != null && !blocks.isEmpty())
             for (Block b : blocks) {
-                if (InvUtils.find(Item.BY_BLOCK.get(b)).found())
+                if (InvUtils.find(Item.BLOCK_ITEMS.get(b)).found())
                     return b;
             }
         if (calcBridge) {
@@ -82,17 +88,17 @@ public class BlockReplaceUtils {
         }
 
         if (blocks == null || blocks.isEmpty()) return bs.getBlock();
-        return blocks.getFirst();
+        return blocks.get(0);
     }
 
     public BlockState normalReplaceState(BlockState state) {
 
         Block replaceBlock = normalReplaceBlock(state);
         if (replaceBlock == null) return state;
-        BlockState repState = replaceBlock.defaultBlockState();
+        BlockState repState = replaceBlock.getDefaultState();
         try {
             for (Property property : state.getProperties()) {
-                repState = repState.setValue(property, state.getValue(property));
+                repState = repState.with(property, state.get(property));
             }
         } catch (Exception ignored) {
 
@@ -104,7 +110,7 @@ public class BlockReplaceUtils {
 
         if (bs.getBlock() instanceof FlowerPotBlock)
             return Blocks.FLOWER_POT;
-        else if (bs.getBlock() instanceof RotatedPillarBlock && InvUtil.findItem(stack -> stack.getItem() instanceof AxeItem) && (!InvUtil.findBlock(bs.getBlock()))) {
+        else if (bs.getBlock() instanceof PillarBlock && InvUtil.findItem(stack -> stack.getItem() instanceof AxeItem) && (!InvUtil.findBlock(bs.getBlock()))) {
             return strippedMap.get(bs.getBlock());
         } else if (bs.getBlock() instanceof FarmlandBlock || bs.getBlock() instanceof DirtPathBlock) {
             for (Block dirt : DIRTS) {
@@ -132,10 +138,10 @@ public class BlockReplaceUtils {
         {
             for (Direction direction : interactDir) {
                 if (pri.liSetBridgeDirs.get().contains(direction)//是可以用的方位
-                    && !BlockUtil.isCanPlaceInBlock(getScheStateBridegeMode(pos.relative(direction)).getBlock())
+                    && !BlockUtil.isCanPlaceInBlock(getScheStateBridegeMode(pos.offset(direction)).getBlock())
                     //被支持的方块是投影中是需要放置的方块
-                    && BlockUtil.getDirs(pos.relative(direction)).isEmpty()//被支持的方块不能直接放置
-                    && BlockUtil.canPlaceIn(pos.relative(direction))//被支持的方块还没被放置
+                    && BlockUtil.getDirs(pos.offset(direction)).isEmpty()//被支持的方块不能直接放置
+                    && BlockUtil.canPlaceIn(pos.offset(direction))//被支持的方块还没被放置
                 ) {
                     //可用支撑
                     for (Block block : pri.liSetBridgeBlocks.get()) {
@@ -152,10 +158,10 @@ public class BlockReplaceUtils {
 
     private BlockState getScheStateBridegeMode(BlockPos pos) {
         BlockState state = SchematicWorldHandler.getSchematicWorld().getBlockState(pos);
-        BlockState repState = needBlockReplace(state, pos, false).defaultBlockState();
+        BlockState repState = needBlockReplace(state, pos, false).getDefaultState();
         try {
             for (Property property : state.getProperties()) {
-                repState = repState.setValue(property, state.getValue(property));
+                repState = repState.with(property, state.get(property));
             }
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
@@ -170,7 +176,7 @@ public class BlockReplaceUtils {
 
     //把mc的Map反过来 方便查询
     private void initMap() {
-        for (Map.Entry<Block, Block> blockBlockEntry : AxeItem.STRIPPABLES.entrySet()) {
+        for (Map.Entry<Block, Block> blockBlockEntry : AxeItem.STRIPPED_BLOCKS.entrySet()) {
             strippedMap.put(blockBlockEntry.getValue(), blockBlockEntry.getKey());
         }
     }

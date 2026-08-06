@@ -6,11 +6,11 @@
 package com.kijinseija.seija_printer.print_main.printer.block_fixer.fixers.click_fixer;
 
 import com.kijinseija.seija_printer.settings.core.BoolSetting;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.NoteBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import java.util.Objects;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.NoteBlock;
+import net.minecraft.state.property.Properties;
+import net.minecraft.util.math.BlockPos;
 
 public class NoteBlockFixer extends AbstractClickFixer{
     public NoteBlockFixer() {
@@ -22,10 +22,10 @@ public class NoteBlockFixer extends AbstractClickFixer{
         if (!super.needFix(pos,needState)) {
             return false;
         }
-        BlockState blockState = mc.level.getBlockState(pos);
+        BlockState blockState = mc.world.getBlockState(pos);
         if (
             blockState.getBlock() instanceof NoteBlock &&needState.getBlock()==blockState.getBlock()) {
-            return !Objects.equals(blockState.getValue(BlockStateProperties.NOTE), needState.getValue(BlockStateProperties.NOTE));
+            return !Objects.equals(blockState.get(Properties.NOTE), needState.get(Properties.NOTE));
         }
         return false;
     }

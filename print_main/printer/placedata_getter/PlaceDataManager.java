@@ -16,16 +16,16 @@ import com.kijinseija.seija_printer.print_main.printer.placedata_getter.getter.*
 import com.kijinseija.seija_printer.print_main.printer.util.records.PlaceDataPack;
 import com.kijinseija.seija_printer.settings.core.SettingGroup;
 import com.kijinseija.seija_printer.settings.core.Settings;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.AirBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import net.minecraft.block.AirBlock;
+import net.minecraft.block.BlockState;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 
 public class PlaceDataManager implements HasExtraSetting {
     private static final PlaceDataManager INSTANCE = new PlaceDataManager();
@@ -34,10 +34,10 @@ public class PlaceDataManager implements HasExtraSetting {
     }
 
 
-    private static final Minecraft mc = Minecraft.getInstance();
+    private static final MinecraftClient mc = MinecraftClient.getInstance();
 
     public PlaceDataPack getPlaceData(BlockPos pos, BlockState needState) {
-        if (!mc.level.getBlockState(pos).canBeReplaced())
+        if (!mc.world.getBlockState(pos).isReplaceable())
             return PlaceDataPack.NULL;
         //若某位置已有不可被替换的方块 则返回
         if (needState.isAir())
@@ -86,8 +86,8 @@ public class PlaceDataManager implements HasExtraSetting {
             return DataGetter.getData(needState, new DirData(pos, dirs), stacks.get(0));
         }
         for (Direction dir : dirData.dirs()) {
-            for (Vec3 hitVec : dirData.clickVecs(dir)) {
-                return PlaceDataPack.plac( PlaceData.newInstance(pos.relative(dir), dir.getOpposite()
+            for (Vec3d hitVec : dirData.clickVecs(dir)) {
+                return PlaceDataPack.plac( PlaceData.newInstance(pos.offset(dir), dir.getOpposite()
                     , hitVec, true, null));
             }
         }

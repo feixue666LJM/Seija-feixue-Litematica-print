@@ -6,9 +6,9 @@
 package com.kijinseija.seija_printer.print_main.modules;
 
 import com.kijinseija.seija_printer.utils.player.ChatUtils;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.game.ServerboundUseItemOnPacket;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
+import net.minecraft.text.Text;
+import net.minecraft.util.hit.BlockHitResult;
 
 public class PlaceDebug extends ClientModule {
 
@@ -16,11 +16,11 @@ public class PlaceDebug extends ClientModule {
         super("PlaceDebug", "Test");
 
     }
-    public void onPacket(ServerboundUseItemOnPacket packet){
+    public void onPacket(PlayerInteractBlockC2SPacket packet){
         if (packet != null) {
-            BlockHitResult bhr = packet.getHitResult();
+            BlockHitResult bhr = packet.getBlockHitResult();
 
-            ChatUtils.sendMsg(Component.nullToEmpty(bhr.getBlockPos()+"  Side:"+bhr.getDirection()+" Vec:"+bhr.getLocation()+"Type:"+bhr.getType()));
+            ChatUtils.sendMsg(Text.of(bhr.getBlockPos()+"  Side:"+bhr.getSide()+" Vec:"+bhr.getPos()+"Type:"+bhr.getType()));
         }
     }
 }

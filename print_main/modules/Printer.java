@@ -23,13 +23,13 @@ import com.kijinseija.seija_printer.settings.impl.SettingsSetting;
 import com.kijinseija.seija_printer.settings.obj.DoubleRange;
 import com.kijinseija.seija_printer.settings.core.*;
 import com.kijinseija.seija_printer.utils.player.ChatUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import java.util.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 
 
 
@@ -375,7 +375,7 @@ public class Printer extends ClientModule {
     public void doPrint() {
         if (RotationManager.INSTANCE.taskSize() > 4) return;
         if (!timer.passed(dRangeSetPrintingDelay.get().getCurrentRandom())) return;
-        if (mc.player == null || mc.level == null) return;
+        if (mc.player == null || mc.world == null) return;
         //刷掉过时的黑名单方块
         blackList.removeIf(b -> System.currentTimeMillis() - b.timestamp() > dSetAntiReplaceTime.get());
         //WorldSchematic worldSchematic = SchematicWorldHandler.getSchematicWorld();
@@ -398,7 +398,7 @@ public class Printer extends ClientModule {
         int ymax = (int) Math.ceil(dRangeSetPrintingYRange.get().getMax());
         int ymin = (int) Math.floor(dRangeSetPrintingYRange.get().getMin());
         for(BlockPos pos:
-        BlockUtil.sphereIterate(mc.player.blockPosition(), dSetPrintingRange.get().intValue(),
+        BlockUtil.sphereIterate(mc.player.getBlockPos(), dSetPrintingRange.get().intValue(),
             ymax,
             ymin)
         ){
@@ -408,7 +408,7 @@ public class Printer extends ClientModule {
             }
         }
         if (bSetListSize.get()){
-            ChatUtils.sendMsg(Component.nullToEmpty(collect.size()+""));
+            ChatUtils.sendMsg(Text.of(collect.size()+""));
         }
         try {
             PosSorter.sort(collect);
@@ -462,7 +462,7 @@ public class Printer extends ClientModule {
 
     @Override
     public void onRender3d(Render3DEvent event) {
-        if (event == null || mc == null || mc.level == null || mc.player == null) return;
+        if (event == null || mc == null || mc.world == null || mc.player == null) return;
         RenderUtil.render(event);
     }
 //    @EventHandler
@@ -488,18 +488,18 @@ public class Printer extends ClientModule {
 
     @Override
     public void onClientTick() {
-        if (mc == null || mc.level == null || mc.player == null) return;
+        if (mc == null || mc.world == null || mc.player == null) return;
         RotationManager.INSTANCE.tick();
         RenderHelper.COLOR.setSpeed(dSetRainbowSpeed.get() / 100);
         RenderHelper.COLOR.getNext();
         if (FakePlacementContext.getFakePlayer() == null
-            || mc.level != FakePlacementContext.getFakePlayer().level())
+            || mc.world != FakePlacementContext.getFakePlayer().getEntityWorld())
             FakePlacementContext.updatePlayerEntity();
 
         long timeStamp = System.currentTimeMillis();
         doPrint();
         if (bSetRunSpeed.get())
-            ChatUtils.sendMsg(Component.nullToEmpty("CalcTime:" + (System.currentTimeMillis() - timeStamp)));
+            ChatUtils.sendMsg(Text.of("CalcTime:" + (System.currentTimeMillis() - timeStamp)));
     }
 
     @Override
@@ -514,7 +514,7 @@ public class Printer extends ClientModule {
     public void onActivate() {
         super.onActivate();
 
-        if (mc.level != null && mc.player != null) FakePlacementContext.updatePlayerEntity();
+        if (mc.world != null && mc.player != null) FakePlacementContext.updatePlayerEntity();
         //更新玩家实体(避免重连客户端导致原版计算失效)
     }
 

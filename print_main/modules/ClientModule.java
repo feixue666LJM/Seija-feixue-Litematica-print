@@ -7,7 +7,7 @@ package com.kijinseija.seija_printer.print_main.modules;
 
 import com.kijinseija.seija_printer.events.render.Render3DEvent;
 import com.kijinseija.seija_printer.settings.core.Settings;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.MinecraftClient;
 
 /**
  * Small client-side module lifecycle used by Seija Printer.
@@ -16,7 +16,7 @@ import net.minecraft.client.Minecraft;
  * thread without requiring an external module host.</p>
  */
 public abstract class ClientModule {
-    protected static final Minecraft mc = Minecraft.getInstance();
+    protected static final MinecraftClient mc = MinecraftClient.getInstance();
 
     public final String name;
     public final String description;

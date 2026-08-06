@@ -33,10 +33,10 @@ public class RotationManager {
 
     public void tick() {
         if (!taskList.isEmpty()){
-            RotationData d = taskList.getFirst();
+            RotationData d = taskList.get(0);
             Rotations.rotate(d.yaw(),d.pitch(),0,d.task());
 
-            taskList.removeFirst();
+            taskList.remove(0);
         }else if (!bufferedTasks.isEmpty()){
             for (Task t : bufferedTasks) {
                 t.getTask().run();

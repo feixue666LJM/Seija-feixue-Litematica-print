@@ -7,12 +7,12 @@ package com.kijinseija.seija_printer.print_main.printer.block_fixer;
 
 import com.kijinseija.seija_printer.print_main.modules.Printer;
 import com.kijinseija.seija_printer.settings.core.BoolSetting;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.util.math.BlockPos;
 
 public abstract class AbstractFixer {
-    public Minecraft mc = Minecraft.getInstance();
+    public MinecraftClient mc = MinecraftClient.getInstance();
 
     public AbstractFixer(String name) {
         bSetEnable = new BoolSetting.Builder().name(name).defaultValue(true).build();

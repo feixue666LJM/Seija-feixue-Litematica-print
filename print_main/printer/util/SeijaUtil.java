@@ -7,20 +7,20 @@ package com.kijinseija.seija_printer.print_main.printer.util;
 
 import com.kijinseija.seija_printer.mixin.ClientWorldAccessor;
 import com.kijinseija.seija_printer.print_main.modules.Printer;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.prediction.BlockStatePredictionHandler;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Pose;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.PendingUpdateManager;
+import net.minecraft.entity.EntityPose;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 
 public class SeijaUtil {
     public static Printer pri = Printer.getINSTANCE();
-    static Minecraft mc = Minecraft.getInstance();
+    static MinecraftClient mc = MinecraftClient.getInstance();
 
     public static boolean isSneak(){
-        return mc.player.isShiftKeyDown()||pri.bSetSneak.get();
+        return mc.player.isSneaking()||pri.bSetSneak.get();
     }
 
     public static double getEyeHeight() {
@@ -29,35 +29,35 @@ public class SeijaUtil {
 
             if (mc.player.getEyeHeight(mc.player.getPose()) < 1) {
                 eyeHeight = mc.player.getEyeHeight(mc.player.getPose());
-            } else eyeHeight = mc.player.getEyeHeight(Pose.CROUCHING);
+            } else eyeHeight = mc.player.getEyeHeight(EntityPose.CROUCHING);
         } else
-            eyeHeight = mc.player.getEyePosition().y - mc.player.position().y;
+            eyeHeight = mc.player.getEyePos().y - mc.player.getPos().y;
         return eyeHeight;
     }
 
-    public static double getYaw(Vec3 pos) {
+    public static double getYaw(Vec3d pos) {
 
-        Vec3 pVec = PredictUtility.getPredPlayerVec();
-        return mc.player.getYRot() + Mth.wrapDegrees((float) Math.toDegrees(Math.atan2(pos.z() - pVec.z(), pos.x() - pVec.x())) - 90f - mc.player.getYRot());
+        Vec3d pVec = PredictUtility.getPredPlayerVec();
+        return mc.player.getYaw() + MathHelper.wrapDegrees((float) Math.toDegrees(Math.atan2(pos.getZ() - pVec.getZ(), pos.getX() - pVec.getX())) - 90f - mc.player.getYaw());
     }
 
-    public static double getPitch(Vec3 pos) {
-        Vec3 pVec = PredictUtility.getPredPlayerVec();
+    public static double getPitch(Vec3d pos) {
+        Vec3d pVec = PredictUtility.getPredPlayerVec();
         double eyeHeight = getEyeHeight();
 
 
-        double diffX = pos.x() - pVec.x();
-        double diffY = pos.y() - (pVec.y() + eyeHeight);
-        double diffZ = pos.z() - pVec.z();
+        double diffX = pos.getX() - pVec.getX();
+        double diffY = pos.getY() - (pVec.getY() + eyeHeight);
+        double diffZ = pos.getZ() - pVec.getZ();
 
         double diffXZ = Math.sqrt(diffX * diffX + diffZ * diffZ);
 
-        return mc.player.getXRot() + Mth.wrapDegrees((float) -Math.toDegrees(Math.atan2(diffY, diffXZ)) - mc.player.getXRot());
+        return mc.player.getPitch() + MathHelper.wrapDegrees((float) -Math.toDegrees(Math.atan2(diffY, diffXZ)) - mc.player.getPitch());
     }
 
     public static int getSequence() {
-        BlockStatePredictionHandler sequence = ((ClientWorldAccessor) mc.level).getPendingUpdateManager().startPredicting();
-        return sequence.currentSequence();
+        PendingUpdateManager sequence = ((ClientWorldAccessor) mc.world).getPendingUpdateManager().incrementSequence();
+        return sequence.getSequence();
     }
 
 
@@ -65,17 +65,17 @@ public class SeijaUtil {
         double d = pos1.getX() - pos2.getX();
         double e = pos1.getY() - pos2.getY();
         double f = pos1.getZ() - pos2.getZ();
-        return Mth.sqrt((float) (d * d + e * e + f * f));
+        return MathHelper.sqrt((float) (d * d + e * e + f * f));
     }
 
     public static Direction[] getEntityFacingOrder(float yaw, float pitch) {
         Direction direction3;
         float f = pitch * ((float) Math.PI / 180);
         float g = -yaw * ((float) Math.PI / 180);
-        float h = Mth.sin(f);
-        float i = Mth.cos(f);
-        float j = Mth.sin(g);
-        float k = Mth.cos(g);
+        float h = MathHelper.sin(f);
+        float i = MathHelper.cos(f);
+        float j = MathHelper.sin(g);
+        float k = MathHelper.cos(g);
         boolean bl = j > 0.0f;
         boolean bl2 = h < 0.0f;
         boolean bl3 = k > 0.0f;
@@ -109,10 +109,10 @@ public class SeijaUtil {
         return new Direction[]{first, second, third, third.getOpposite(), second.getOpposite(), first.getOpposite()};
     }
 
-    public static Direction[] getPlacementDirections(Vec3 clickVec, BlockPos placePos, Direction offsetDir) {
+    public static Direction[] getPlacementDirections(Vec3d clickVec, BlockPos placePos, Direction offsetDir) {
         int i;
         Direction[] directions = getEntityFacingOrder((float) getYaw(clickVec), (float) getPitch(clickVec));
-        if (BlockUtil.canPlaceIn(placePos.relative(offsetDir))) {
+        if (BlockUtil.canPlaceIn(placePos.offset(offsetDir))) {
             return directions;
         }
         Direction direction = offsetDir.getOpposite();

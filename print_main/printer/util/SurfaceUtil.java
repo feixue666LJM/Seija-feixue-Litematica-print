@@ -8,12 +8,12 @@ package com.kijinseija.seija_printer.print_main.printer.util;
 import com.kijinseija.seija_printer.print_main.modules.Printer;
 import fi.dy.masa.litematica.world.SchematicWorldHandler;
 import com.kijinseija.seija_printer.utils.player.ChatUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 
 public class SurfaceUtil {
     private static final Printer pri = Printer.getINSTANCE();
@@ -36,7 +36,7 @@ public class SurfaceUtil {
         for (BlockPos blockPos : surface) {
 
             if ((!BlockReplaceUtils.INSTANCE.getScheState(blockPos).isSolid())
-                ||(!BlockReplaceUtils.INSTANCE.getScheState(blockPos).isCollisionShapeFullBlock(SchematicWorldHandler.getSchematicWorld(),blockPos))) return true;
+                ||(!BlockReplaceUtils.INSTANCE.getScheState(blockPos).isFullCube(SchematicWorldHandler.getSchematicWorld(),blockPos))) return true;
         }
         return false;
     }
@@ -67,7 +67,7 @@ public class SurfaceUtil {
     private static Set<BlockPos> getSurfaceManhattan(Set<BlockPos> set) {
         return set.stream()
             .flatMap(blockPos -> Arrays.stream(Direction.values())
-                .map(blockPos::relative)
+                .map(blockPos::offset)
                 .toList().stream())
             .collect(Collectors.toSet());
     }

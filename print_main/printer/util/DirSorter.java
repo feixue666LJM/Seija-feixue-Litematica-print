@@ -8,26 +8,26 @@ package com.kijinseija.seija_printer.print_main.printer.util;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 
 public class DirSorter {
-    private static final Minecraft mc = Minecraft.getInstance();
+    private static final MinecraftClient mc = MinecraftClient.getInstance();
 
     //AI生成 将Dirs基于方块坐标按可见的面积降序
     public static List<Direction> sort(List<Direction> dirs, BlockPos placePos,boolean interact) {
-        Vec3 blockCenter = placePos.getCenter();
+        Vec3d blockCenter = placePos.toCenterPos();
 
-        Vec3 eyePos = mc.player.getEyePosition();
+        Vec3d eyePos = mc.player.getEyePos();
         // 视线向量（不归一化）
         double vx = eyePos.x - blockCenter.x;
         double vy = eyePos.y - blockCenter.y;
         double vz = eyePos.z - blockCenter.z;
 
         dirs.sort(Comparator.comparingDouble(dir -> {
-            var n = dir.getUnitVec3i();
+            var n = dir.getVector();
             double score = n.getX() * vx + n.getY() * vy + n.getZ() * vz;
             return -score*(interact?1:-1);
         }));
