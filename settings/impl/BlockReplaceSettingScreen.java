@@ -1,10 +1,9 @@
 package com.kijinseija.seija_printer.settings.impl;
 
-import net.minecraft.world.level.block.Block;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import net.minecraft.block.Block;
 
 /** Data editor for block replacement mappings; rendering is handled by the native screen. */
 public final class BlockReplaceSettingScreen {

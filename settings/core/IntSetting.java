@@ -7,9 +7,9 @@ package com.kijinseija.seija_printer.settings.core;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import net.minecraft.nbt.CompoundTag;
-
 import java.util.function.Consumer;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public class IntSetting extends Setting<Integer> {
     public final int min;
@@ -57,14 +57,14 @@ public class IntSetting extends Setting<Integer> {
     }
 
     @Override
-    protected CompoundTag save(CompoundTag tag) {
+    protected NbtCompound save(NbtCompound tag) {
         tag.putInt("value", value);
         return tag;
     }
 
     @Override
-    protected Integer load(CompoundTag tag) {
-        return tag.getInt("value").orElse(defaultValue);
+    protected Integer load(NbtCompound tag) {
+        return tag.contains("value", NbtElement.NUMBER_TYPE) ? tag.getInt("value") : defaultValue;
     }
 
     @Override

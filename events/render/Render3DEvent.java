@@ -5,49 +5,50 @@
 
 package com.kijinseija.seija_printer.events.render;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.kijinseija.seija_printer.render.ShapeMode;
 import com.kijinseija.seija_printer.settings.core.Color;
-import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
-import net.minecraft.client.Camera;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.ShapeRenderer;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.Shapes;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
+import net.minecraft.client.render.Camera;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.WorldRenderer;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Vec3d;
 
 /** Render callback payload and a small immediate-style shape facade. */
 public final class Render3DEvent {
-    public final LevelRenderContext context;
-    public final PoseStack matrices;
+    public final WorldRenderContext context;
+    public final MatrixStack matrices;
     public final Renderer renderer;
 
-    public Render3DEvent(LevelRenderContext context) {
+    public Render3DEvent(WorldRenderContext context) {
         this.context = context;
-        this.matrices = context.poseStack();
+        this.matrices = context.matrixStack();
         this.renderer = new Renderer(context);
     }
 
     /** Flushes the shared level buffer after all modules have emitted geometry. */
     public void flush() {
-        context.bufferSource().endBatch();
+        if (context.consumers() instanceof VertexConsumerProvider.Immediate bufferSource) {
+            bufferSource.draw();
+        }
     }
 
     public static final class Renderer {
-        private final LevelRenderContext context;
-        private final PoseStack matrices;
-        private final Vec3 cameraPosition;
+        private final WorldRenderContext context;
+        private final MatrixStack matrices;
+        private final Vec3d cameraPosition;
 
-        private Renderer(LevelRenderContext context) {
+        private Renderer(WorldRenderContext context) {
             this.context = context;
-            this.matrices = context.poseStack();
-            Camera camera = context.gameRenderer().getMainCamera();
-            this.cameraPosition = camera == null ? Vec3.ZERO : camera.position();
+            this.matrices = context.matrixStack();
+            Camera camera = context.camera();
+            this.cameraPosition = camera == null ? Vec3d.ZERO : camera.getPos();
         }
 
-        public void box(AABB box, Color sideColor, Color lineColor, ShapeMode mode, int ignoredFlags) {
+        public void box(Box box, Color sideColor, Color lineColor, ShapeMode mode, int ignoredFlags) {
             if (box == null || mode == null) return;
             if (mode == ShapeMode.Sides || mode == ShapeMode.Both) {
                 drawFaces(box, sideColor);
@@ -60,39 +61,44 @@ public final class Render3DEvent {
         public void boxSides(double minX, double minY, double minZ,
                              double maxX, double maxY, double maxZ,
                              Color color, int flags) {
-            box(new AABB(minX, minY, minZ, maxX, maxY, maxZ), color, null, ShapeMode.Sides, flags);
+            box(new Box(minX, minY, minZ, maxX, maxY, maxZ), color, null, ShapeMode.Sides, flags);
         }
 
         public void boxLines(double minX, double minY, double minZ,
                              double maxX, double maxY, double maxZ,
                              Color color, int flags) {
-            box(new AABB(minX, minY, minZ, maxX, maxY, maxZ), null, color, ShapeMode.Lines, flags);
+            box(new Box(minX, minY, minZ, maxX, maxY, maxZ), null, color, ShapeMode.Lines, flags);
         }
 
         public void line(double x1, double y1, double z1,
                          double x2, double y2, double z2, Color color) {
             if (color == null) return;
-            VertexConsumer vertices = context.bufferSource().getBuffer(RenderTypes.lines());
-            PoseStack.Pose pose = matrices.last();
+            VertexConsumer vertices = context.consumers().getBuffer(RenderLayer.getLines());
+            MatrixStack.Entry pose = matrices.peek();
             float ax = relativeX(x1), ay = relativeY(y1), az = relativeZ(z1);
             float bx = relativeX(x2), by = relativeY(y2), bz = relativeZ(z2);
             float dx = bx - ax, dy = by - ay, dz = bz - az;
             float length = (float) Math.sqrt(dx * dx + dy * dy + dz * dz);
             if (length < 1.0e-5f) return;
             float nx = dx / length, ny = dy / length, nz = dz / length;
-            int argb = color.argb();
-            vertices.addVertex(pose, ax, ay, az).setColor(argb).setNormal(pose, nx, ny, nz).setLineWidth(1.0f);
-            vertices.addVertex(pose, bx, by, bz).setColor(argb).setNormal(pose, nx, ny, nz).setLineWidth(1.0f);
+            vertices.vertex(pose.getPositionMatrix(), ax, ay, az)
+                .color(color.r, color.g, color.b, color.a)
+                .normal(pose.getNormalMatrix(), nx, ny, nz)
+                .next();
+            vertices.vertex(pose.getPositionMatrix(), bx, by, bz)
+                .color(color.r, color.g, color.b, color.a)
+                .normal(pose.getNormalMatrix(), nx, ny, nz)
+                .next();
         }
 
         /** Compatibility no-op for older renderer call sites. */
-        public void render(PoseStack ignored) {
+        public void render(MatrixStack ignored) {
         }
 
-        private void drawFaces(AABB box, Color color) {
+        private void drawFaces(Box box, Color color) {
             if (color == null) return;
-            VertexConsumer vertices = context.bufferSource().getBuffer(RenderTypes.debugFilledBox());
-            PoseStack.Pose pose = matrices.last();
+            VertexConsumer vertices = context.consumers().getBuffer(RenderLayer.getDebugFilledBox());
+            MatrixStack.Entry pose = matrices.peek();
             float x1 = relativeX(box.minX), y1 = relativeY(box.minY), z1 = relativeZ(box.minZ);
             float x2 = relativeX(box.maxX), y2 = relativeY(box.maxY), z2 = relativeZ(box.maxZ);
             int argb = color.argb();
@@ -110,20 +116,30 @@ public final class Render3DEvent {
             vertex(vertices, pose, x2, y2, z1, argb); vertex(vertices, pose, x2, y2, z2, argb);
         }
 
-        private void drawEdges(AABB box, Color color) {
+        private void drawEdges(Box box, Color color) {
             if (color == null) return;
-            VertexConsumer vertices = context.bufferSource().getBuffer(RenderTypes.lines());
-            PoseStack.Pose pose = matrices.last();
-            AABB relative = new AABB(
+            VertexConsumer vertices = context.consumers().getBuffer(RenderLayer.getLines());
+            MatrixStack.Entry pose = matrices.peek();
+            Box relative = new Box(
                 box.minX - cameraPosition.x, box.minY - cameraPosition.y, box.minZ - cameraPosition.z,
                 box.maxX - cameraPosition.x, box.maxY - cameraPosition.y, box.maxZ - cameraPosition.z
             );
-            ShapeRenderer.renderShape(matrices, vertices, Shapes.create(relative), 0, 0, 0, color.argb(), 1.0f);
+            WorldRenderer.drawBox(
+                matrices,
+                vertices,
+                relative,
+                color.r / 255.0F,
+                color.g / 255.0F,
+                color.b / 255.0F,
+                color.a / 255.0F
+            );
         }
 
-        private static void vertex(VertexConsumer vertices, PoseStack.Pose pose,
+        private static void vertex(VertexConsumer vertices, MatrixStack.Entry pose,
                                    float x, float y, float z, int color) {
-            vertices.addVertex(pose, x, y, z).setColor(color);
+            vertices.vertex(pose.getPositionMatrix(), x, y, z)
+                .color(color >> 16 & 0xFF, color >> 8 & 0xFF, color & 0xFF, color >>> 24)
+                .next();
         }
 
         private float relativeX(double x) { return (float) (x - cameraPosition.x); }

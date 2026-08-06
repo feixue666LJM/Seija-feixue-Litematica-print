@@ -7,9 +7,9 @@ package com.kijinseija.seija_printer.settings.core;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import net.minecraft.nbt.CompoundTag;
-
 import java.util.function.Consumer;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public class DoubleSetting extends Setting<Double> {
     public final double min;
@@ -60,14 +60,14 @@ public class DoubleSetting extends Setting<Double> {
     }
 
     @Override
-    protected CompoundTag save(CompoundTag tag) {
+    protected NbtCompound save(NbtCompound tag) {
         tag.putDouble("value", value);
         return tag;
     }
 
     @Override
-    protected Double load(CompoundTag tag) {
-        return tag.getDouble("value").orElse(defaultValue);
+    protected Double load(NbtCompound tag) {
+        return tag.contains("value", NbtElement.NUMBER_TYPE) ? tag.getDouble("value") : defaultValue;
     }
 
     @Override

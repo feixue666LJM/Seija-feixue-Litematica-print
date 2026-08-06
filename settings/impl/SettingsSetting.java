@@ -10,9 +10,9 @@ import com.google.gson.JsonObject;
 import com.kijinseija.seija_printer.settings.core.IVisible;
 import com.kijinseija.seija_printer.settings.core.Setting;
 import com.kijinseija.seija_printer.settings.core.Settings;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import java.util.function.Consumer;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public class SettingsSetting extends Setting<Settings> {
 
@@ -52,17 +52,17 @@ public class SettingsSetting extends Setting<Settings> {
 //    }
 
     @Override
-    public CompoundTag save(CompoundTag tag) {
+    public NbtCompound save(NbtCompound tag) {
         tag.put("settings", value.toTag());
         return tag;
     }
 
     @Override
-    public Settings load(CompoundTag tag) {
-        Tag settingsTag = tag.get("settings");
+    public Settings load(NbtCompound tag) {
+        NbtElement settingsTag = tag.get("settings");
         Settings settings = value;
-        if (settingsTag instanceof CompoundTag) {
-            settings.fromTag((CompoundTag) settingsTag);
+        if (settingsTag instanceof NbtCompound) {
+            settings.fromTag((NbtCompound) settingsTag);
         }
         return settings;
     }

@@ -3,12 +3,11 @@ package com.kijinseija.seija_printer.settings;
 import com.kijinseija.seija_printer.print_main.modules.ClientModule;
 import com.kijinseija.seija_printer.print_main.modules.Printer;
 import com.kijinseija.seija_printer.settings.core.Settings;
-import net.minecraft.client.Minecraft;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import net.minecraft.client.MinecraftClient;
 
 /** Loads and stores printer settings independently of a host UI. */
 public final class PrinterSettings {
@@ -76,6 +75,6 @@ public final class PrinterSettings {
     }
 
     private Path configPath(String fileName) {
-        return Minecraft.getInstance().gameDirectory.toPath().resolve("config").resolve(fileName);
+        return MinecraftClient.getInstance().runDirectory.toPath().resolve("config").resolve(fileName);
     }
 }

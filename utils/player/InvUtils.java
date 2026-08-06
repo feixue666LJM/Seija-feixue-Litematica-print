@@ -1,16 +1,15 @@
 package com.kijinseija.seija_printer.utils.player;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.MultiPlayerGameMode;
-import net.minecraft.network.protocol.game.ServerboundSetCarriedItemPacket;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerInput;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-
 import java.util.function.Predicate;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerInteractionManager;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.packet.c2s.play.UpdateSelectedSlotC2SPacket;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.slot.SlotActionType;
 
 /**
  * Inventory helpers implemented against vanilla's container interaction API.
@@ -26,7 +25,7 @@ public final class InvUtils {
     }
 
     public static FindItemResult find(Item item) {
-        return find(stack -> stack.is(item));
+        return find(stack -> stack.isOf(item));
     }
 
     public static FindItemResult find(Predicate<ItemStack> predicate) {
@@ -34,13 +33,13 @@ public final class InvUtils {
     }
 
     public static FindItemResult find(Predicate<ItemStack> predicate, int start, int end) {
-        Minecraft minecraft = Minecraft.getInstance();
+        MinecraftClient minecraft = MinecraftClient.getInstance();
         if (minecraft.player == null) return new FindItemResult(-1, 0);
-        Inventory inventory = minecraft.player.getInventory();
+        PlayerInventory inventory = minecraft.player.getInventory();
         int first = Math.max(0, start);
         int last = Math.min(40, end);
         for (int slot = first; slot <= last; slot++) {
-            ItemStack stack = inventory.getItem(slot);
+            ItemStack stack = inventory.getStack(slot);
             if (predicate.test(stack)) return new FindItemResult(slot, stack.getCount());
         }
         return new FindItemResult(-1, 0);
@@ -51,18 +50,18 @@ public final class InvUtils {
     }
 
     public static FindItemResult findInHotbar(Item item) {
-        return findInHotbar(stack -> stack.is(item));
+        return findInHotbar(stack -> stack.isOf(item));
     }
 
     public static boolean swap(int slot, boolean swapBack) {
-        Minecraft minecraft = Minecraft.getInstance();
+        MinecraftClient minecraft = MinecraftClient.getInstance();
         if (minecraft.player == null || !SlotUtils.isHotbar(slot)) return false;
-        int current = minecraft.player.getInventory().getSelectedSlot();
+        int current = minecraft.player.getInventory().selectedSlot;
         if (current == slot) return true;
         if (swapBack && previousSlot < 0) previousSlot = current;
-        minecraft.player.getInventory().setSelectedSlot(slot);
-        if (minecraft.getConnection() != null) {
-            minecraft.getConnection().send(new ServerboundSetCarriedItemPacket(slot));
+        minecraft.player.getInventory().selectedSlot = slot;
+        if (minecraft.getNetworkHandler() != null) {
+            minecraft.getNetworkHandler().sendPacket(new UpdateSelectedSlotC2SPacket(slot));
         }
         return true;
     }
@@ -74,17 +73,17 @@ public final class InvUtils {
         return swap(slot, false);
     }
 
-    public static Action move() { return new Action(ContainerInput.PICKUP); }
-    public static Action click() { return new Action(ContainerInput.PICKUP); }
-    public static Action quickSwap() { return new Action(ContainerInput.SWAP); }
-    public static Action shiftClick() { return new Action(ContainerInput.QUICK_MOVE); }
+    public static Action move() { return new Action(SlotActionType.PICKUP); }
+    public static Action click() { return new Action(SlotActionType.PICKUP); }
+    public static Action quickSwap() { return new Action(SlotActionType.SWAP); }
+    public static Action shiftClick() { return new Action(SlotActionType.QUICK_MOVE); }
 
     public static final class Action {
-        private final ContainerInput input;
+        private final SlotActionType input;
         private int from = -1;
         private int fromButton = 0;
 
-        private Action(ContainerInput input) { this.input = input; }
+        private Action(SlotActionType input) { this.input = input; }
 
         public Action from(int slot) {
             this.from = slot;
@@ -97,7 +96,7 @@ public final class InvUtils {
         }
 
         public Action to(int slot) {
-            if (input == ContainerInput.SWAP) {
+            if (input == SlotActionType.SWAP) {
                 perform(SlotUtils.indexToId(slot), fromButton);
             } else {
                 int sourceId = SlotUtils.indexToId(from);
@@ -114,12 +113,12 @@ public final class InvUtils {
         }
 
         private void perform(int slotId, int button) {
-            Minecraft minecraft = Minecraft.getInstance();
-            Player player = minecraft.player;
-            MultiPlayerGameMode gameMode = minecraft.gameMode;
+            MinecraftClient minecraft = MinecraftClient.getInstance();
+            PlayerEntity player = minecraft.player;
+            ClientPlayerInteractionManager gameMode = minecraft.interactionManager;
             if (player == null || gameMode == null || slotId < 0) return;
-            AbstractContainerMenu menu = player.containerMenu;
-            gameMode.handleContainerInput(menu.containerId, slotId, button, input, player);
+            ScreenHandler menu = player.currentScreenHandler;
+            gameMode.clickSlot(menu.syncId, slotId, button, input, player);
         }
     }
 }

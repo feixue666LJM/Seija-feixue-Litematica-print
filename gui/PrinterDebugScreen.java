@@ -26,30 +26,29 @@ import com.kijinseija.seija_printer.settings.core.StringSetting;
 import com.kijinseija.seija_printer.settings.obj.DoubleRange;
 import com.kijinseija.seija_printer.settings.impl.DoubleRangeSetting;
 import com.kijinseija.seija_printer.settings.impl.DirectionListSetting;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.Checkbox;
-import net.minecraft.client.gui.components.CycleButton;
-import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.gui.components.Tooltip;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.block.Block;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import net.minecraft.block.Block;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.tooltip.Tooltip;
+import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.gui.widget.CheckboxWidget;
+import net.minecraft.client.gui.widget.CyclingButtonWidget;
+import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.registry.Registries;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 
 /**
  * Standalone settings and runtime diagnostics screen.
  *
  * <p>The screen deliberately uses only vanilla client widgets.  It can be
- * opened while in a world ({@link #isPauseScreen()} returns {@code false}),
+ * opened while in a world ({@link #shouldPause()} returns {@code false}),
  * so module ticks and rendering continue while values are being inspected.</p>
  */
 public final class PrinterDebugScreen extends Screen {
@@ -68,20 +67,20 @@ public final class PrinterDebugScreen extends Screen {
     private String status = "";
 
     public PrinterDebugScreen(Screen parent, InitClass runtime) {
-        super(Component.translatable("screen.seija_printer.debug.title"));
+        super(Text.translatable("screen.seija_printer.debug.title"));
         this.parent = parent;
         this.runtime = runtime;
         this.selectedModule = 0;
     }
 
     /** Convenience entry point for key mappings and other client integrations. */
-    public static void open(Minecraft client, InitClass runtime) {
-        if (client != null) client.setScreen(new PrinterDebugScreen(client.screen, runtime));
+    public static void open(MinecraftClient client, InitClass runtime) {
+        if (client != null) client.setScreen(new PrinterDebugScreen(client.currentScreen, runtime));
     }
 
     @Override
     protected void init() {
-        clearWidgets();
+        clearChildren();
         rows.clear();
 
         List<ClientModule> modules = modules();
@@ -97,44 +96,44 @@ public final class PrinterDebugScreen extends Screen {
         ClientModule module = currentModule();
         int actionY = 54;
         int actionWidth = Math.min(112, Math.max(84, (panelRight - panelLeft - 18) / 5));
-        addRenderableWidget(Button.builder(module == null
-                ? Component.translatable("screen.seija_printer.debug.no_module")
-                : Component.translatable(module.isActive()
+        addDrawableChild(ButtonWidget.builder(module == null
+                ? Text.translatable("screen.seija_printer.debug.no_module")
+                : Text.translatable(module.isActive()
                     ? "screen.seija_printer.debug.disable"
                     : "screen.seija_printer.debug.enable"), button -> {
             if (module != null) {
                 module.toggle();
                 status = module.name + (module.isActive() ? " enabled" : " disabled");
-                rebuildWidgets();
+                clearAndInit();
             }
-        }).bounds(panelLeft, actionY, actionWidth, 20).build());
+        }).dimensions(panelLeft, actionY, actionWidth, 20).build());
 
         if (module instanceof ItemSearcher searcher) {
             int searchActionY = 78;
             int searchActionWidth = (panelRight - panelLeft - 6) / 2;
-            addRenderableWidget(Button.builder(Component.translatable("screen.seija_printer.debug.start_analysis"), button -> {
+            addDrawableChild(ButtonWidget.builder(Text.translatable("screen.seija_printer.debug.start_analysis"), button -> {
                 if (!searcher.isActive()) searcher.activate();
                 searcher.startAnalysis();
                 status = "Analysis started";
-            }).bounds(panelLeft, searchActionY, searchActionWidth, 20).build());
-            addRenderableWidget(Button.builder(Component.translatable("screen.seija_printer.debug.print_list"), button -> {
+            }).dimensions(panelLeft, searchActionY, searchActionWidth, 20).build());
+            addDrawableChild(ButtonWidget.builder(Text.translatable("screen.seija_printer.debug.print_list"), button -> {
                 searcher.printItemList();
                 status = "Material list sent to chat";
-            }).bounds(panelLeft + searchActionWidth + 6, searchActionY, searchActionWidth, 20).build());
+            }).dimensions(panelLeft + searchActionWidth + 6, searchActionY, searchActionWidth, 20).build());
         }
 
         int saveX = panelRight - 2 * 76 - 6;
-        addRenderableWidget(Button.builder(Component.translatable("screen.seija_printer.debug.save"), button -> {
+        addDrawableChild(ButtonWidget.builder(Text.translatable("screen.seija_printer.debug.save"), button -> {
             saveSettings();
             status = "Settings saved";
-        }).bounds(saveX, actionY, 76, 20).build());
-        addRenderableWidget(Button.builder(Component.translatable("screen.seija_printer.debug.reset_all"), button -> {
+        }).dimensions(saveX, actionY, 76, 20).build());
+        addDrawableChild(ButtonWidget.builder(Text.translatable("screen.seija_printer.debug.reset_all"), button -> {
             if (module != null) {
                 module.settings.reset();
                 status = "Settings reset";
-                rebuildWidgets();
+                clearAndInit();
             }
-        }).bounds(panelRight - 76, actionY, 76, 20).build());
+        }).dimensions(panelRight - 76, actionY, 76, 20).build());
 
         if (module != null) buildSettingRows(module, panelLeft, panelRight, panelTop, panelBottom);
         if (contentHeight <= panelBottom - panelTop) scrollOffset = 0;
@@ -148,17 +147,17 @@ public final class PrinterDebugScreen extends Screen {
         for (int i = 0; i < modules.size(); i++) {
             ClientModule module = modules.get(i);
             final int index = i;
-            Button tab = Button.builder(Component.literal(module.name), button -> {
+            ButtonWidget tab = ButtonWidget.builder(Text.literal(module.name), button -> {
                 selectedModule = index;
                 scrollOffset = 0;
                 status = "";
-                rebuildWidgets();
-            }).bounds(x, y, width - 4, 20).build();
+                clearAndInit();
+            }).dimensions(x, y, width - 4, 20).build();
             if (!module.description.isBlank()) {
-                tab.setTooltip(Tooltip.create(Component.literal(module.description)));
+                tab.setTooltip(Tooltip.of(Text.literal(module.description)));
             }
             tab.active = selectedModule != i;
-            addRenderableWidget(tab);
+            addDrawableChild(tab);
             x += width;
         }
     }
@@ -181,11 +180,11 @@ public final class PrinterDebugScreen extends Screen {
                 rows.add(SettingRow.setting(setting, rowY));
                 if (isWithinPanel(rowY, top, bottom)) {
                     addSettingWidget(setting, controlX, rowY, controlWidth);
-                    addRenderableWidget(Button.builder(Component.translatable("screen.seija_printer.debug.reset"), button -> {
+                    addDrawableChild(ButtonWidget.builder(Text.translatable("screen.seija_printer.debug.reset"), button -> {
                         setting.reset();
                         status = setting.name + " reset";
-                        rebuildWidgets();
-                    }).bounds(resetX, rowY - 1, 54, 20).build());
+                        clearAndInit();
+                    }).dimensions(resetX, rowY - 1, 54, 20).build());
                 }
                 y += ROW_HEIGHT;
             }
@@ -195,23 +194,23 @@ public final class PrinterDebugScreen extends Screen {
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     private void addSettingWidget(Setting<?> setting, int x, int y, int width) {
-        Component label = Component.literal(setting.name);
+        Text label = Text.literal(setting.name);
         String description = setting.description;
         Tooltip tooltip = description == null || description.isBlank()
-            ? null : Tooltip.create(Component.literal(description));
+            ? null : Tooltip.of(Text.literal(description));
 
         if (setting instanceof BoolSetting boolSetting) {
-            Checkbox.Builder builder = Checkbox.builder(Component.empty(), font)
+            CheckboxWidget.Builder builder = CheckboxWidget.builder(Text.empty(), textRenderer)
                 .pos(x, y)
-                .selected(Boolean.TRUE.equals(boolSetting.get()))
-                .onValueChange((checkbox, value) -> {
+                .checked(Boolean.TRUE.equals(boolSetting.get()))
+                .callback((checkbox, value) -> {
                     boolSetting.set(value);
-                    minecraft.execute(() -> {
-                        if (minecraft.screen == this) rebuildWidgets();
+                    client.execute(() -> {
+                        if (client.currentScreen == this) clearAndInit();
                     });
                 });
             if (tooltip != null) builder.tooltip(tooltip);
-            addRenderableWidget(builder.build());
+            addDrawableChild(builder.build());
             return;
         }
 
@@ -219,14 +218,13 @@ public final class PrinterDebugScreen extends Screen {
             Enum<?> current = (Enum<?>) enumSetting.get();
             if (current != null) {
                 List<Enum<?>> values = Arrays.asList(current.getDeclaringClass().getEnumConstants());
-                CycleButton.Builder<Enum<?>> builder = CycleButton.<Enum<?>>builder(
-                    value -> Component.literal(value.name()),
-                    () -> (Enum<?>) enumSetting.get()
-                ).withValues(values);
-                CycleButton<Enum<?>> cycle = builder.create(x, y - 1, width, 20, label,
+                CyclingButtonWidget.Builder<Enum<?>> builder = CyclingButtonWidget.<Enum<?>>builder(
+                    value -> Text.literal(value.name())
+                ).values(values).initially((Enum<?>) enumSetting.get());
+                CyclingButtonWidget<Enum<?>> cycle = builder.build(x, y - 1, width, 20, label,
                     (button, value) -> ((Setting) enumSetting).set(value));
                 if (tooltip != null) cycle.setTooltip(tooltip);
-                addRenderableWidget(cycle);
+                addDrawableChild(cycle);
                 return;
             }
         }
@@ -235,12 +233,12 @@ public final class PrinterDebugScreen extends Screen {
             || setting instanceof StringSetting || setting instanceof BlockPosSetting
             || setting instanceof DoubleRangeSetting || setting instanceof ColorSetting
             || setting instanceof BlockListSetting || setting instanceof DirectionListSetting) {
-            EditBox box = new EditBox(font, x, y - 1, width, 20, label);
-            box.setValue(formatValue(setting.get()));
+            TextFieldWidget box = new TextFieldWidget(textRenderer, x, y - 1, width, 20, label);
+            box.setText(formatValue(setting.get()));
             box.setMaxLength(256);
-            box.setResponder(setting::parse);
+            box.setChangedListener(setting::parse);
             if (tooltip != null) box.setTooltip(tooltip);
-            addRenderableWidget(box);
+            addDrawableChild(box);
             return;
         }
 
@@ -249,14 +247,14 @@ public final class PrinterDebugScreen extends Screen {
         if (tooltip != null) {
             // The tooltip is attached to a compact button so read-only values
             // are still discoverable without introducing a custom widget.
-            Button info = Button.builder(Component.literal(trimValue(formatValue(setting.get()), width)), button -> {
+            ButtonWidget info = ButtonWidget.builder(Text.literal(trimValue(formatValue(setting.get()), width)), button -> {
                 status = setting.name + ": " + formatValue(setting.get());
-            }).bounds(x, y - 1, width, 20).tooltip(tooltip).build();
-            addRenderableWidget(info);
+            }).dimensions(x, y - 1, width, 20).tooltip(tooltip).build();
+            addDrawableChild(info);
         } else {
-            addRenderableWidget(Button.builder(Component.literal(trimValue(formatValue(setting.get()), width)), button -> {
+            addDrawableChild(ButtonWidget.builder(Text.literal(trimValue(formatValue(setting.get()), width)), button -> {
                 status = setting.name + ": " + formatValue(setting.get());
-            }).bounds(x, y - 1, width, 20).build());
+            }).dimensions(x, y - 1, width, 20).build());
         }
     }
 
@@ -269,8 +267,8 @@ public final class PrinterDebugScreen extends Screen {
         }
         if (value instanceof Collection<?> collection) {
             return collection.stream().map(entry -> {
-                if (entry instanceof Block block) return BuiltInRegistries.BLOCK.getKey(block).toString();
-                if (entry instanceof Direction direction) return direction.getName();
+                if (entry instanceof Block block) return Registries.BLOCK.getId(block).toString();
+                if (entry instanceof Direction direction) return direction.asString();
                 return String.valueOf(entry);
             }).reduce((left, right) -> left + "," + right).orElse("");
         }
@@ -285,34 +283,50 @@ public final class PrinterDebugScreen extends Screen {
     }
 
     @Override
-    public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float delta) {
+    public void renderBackground(DrawContext graphics, int mouseX, int mouseY, float delta) {
+        super.renderBackground(graphics, mouseX, mouseY, delta);
+
         int left = panelLeft();
         int right = panelRight();
         int top = panelTop();
         int bottom = panelBottom();
 
         graphics.fill(left, top, right, bottom, 0x990B0F14);
-        graphics.outline(left, top, right, bottom, 0xFF59616B);
-        graphics.centeredText(font, title, width / 2, 8, 0xFFFFFFFF);
+        graphics.drawHorizontalLine(left, right - 1, top, 0xFF59616B);
+        graphics.drawHorizontalLine(left, right - 1, bottom - 1, 0xFF59616B);
+        graphics.drawVerticalLine(left, top, bottom - 1, 0xFF59616B);
+        graphics.drawVerticalLine(right - 1, top, bottom - 1, 0xFF59616B);
+    }
+
+    @Override
+    public void render(DrawContext graphics, int mouseX, int mouseY, float delta) {
+        // Screen.render() applies the blurred background before drawing widgets.
+        // Draw labels afterwards so they never become part of the blur pass.
+        super.render(graphics, mouseX, mouseY, delta);
+
+        int left = panelLeft();
+        int right = panelRight();
+        int top = panelTop();
+        int bottom = panelBottom();
+
+        graphics.drawCenteredTextWithShadow(textRenderer, title, width / 2, 8, 0xFFFFFFFF);
 
         ClientModule module = currentModule();
-        if (!status.isBlank()) graphics.text(font, Component.literal(status), left + 8, bottom + 9, 0xFFE0C46C);
-        graphics.text(font, Component.literal(diagnostics()), left + 8, bottom + 21, 0xFF9FAAB5);
+        if (!status.isBlank()) graphics.drawTextWithShadow(textRenderer, Text.literal(status), left + 8, bottom + 9, 0xFFE0C46C);
+        graphics.drawTextWithShadow(textRenderer, Text.literal(diagnostics()), left + 8, bottom + 21, 0xFF9FAAB5);
 
         int labelWidth = Math.max(90, Math.min(260, (right - left) * 40 / 100));
         for (SettingRow row : rows) {
             if (row.group()) {
                 if (isWithinPanel(row.y(), top, bottom)) {
-                    graphics.text(font, Component.literal(row.groupName()), left + 8, row.y() + 5, 0xFF76B9FF);
-                    graphics.horizontalLine(left + 8, right - 8, row.y() + 18, 0x664A6176);
+                    graphics.drawTextWithShadow(textRenderer, Text.literal(row.groupName()), left + 8, row.y() + 5, 0xFF76B9FF);
+                    graphics.drawHorizontalLine(left + 8, right - 8, row.y() + 18, 0x664A6176);
                 }
             } else if (isWithinPanel(row.y(), top, bottom)) {
-                String label = font.plainSubstrByWidth(row.setting().name, Math.max(20, labelWidth - 12), true);
-                graphics.text(font, Component.literal(label), left + 8, row.y() + 5, 0xFFE8E8E8);
+                String label = textRenderer.trimToWidth(row.setting().name, Math.max(20, labelWidth - 12), true);
+                graphics.drawTextWithShadow(textRenderer, Text.literal(label), left + 8, row.y() + 5, 0xFFE8E8E8);
             }
         }
-
-        super.extractRenderState(graphics, mouseX, mouseY, delta);
     }
 
     @Override
@@ -322,7 +336,7 @@ public final class PrinterDebugScreen extends Screen {
             int next = Math.max(0, Math.min(maxScroll(panelTop(), panelBottom()), scrollOffset + step));
             if (next != scrollOffset) {
                 scrollOffset = next;
-                rebuildWidgets();
+                clearAndInit();
             }
             return true;
         }
@@ -330,13 +344,13 @@ public final class PrinterDebugScreen extends Screen {
     }
 
     @Override
-    public void onClose() {
+    public void close() {
         saveSettings();
-        minecraft.setScreen(parent);
+        client.setScreen(parent);
     }
 
     @Override
-    public boolean isPauseScreen() {
+    public boolean shouldPause() {
         return false;
     }
 
@@ -346,8 +360,8 @@ public final class PrinterDebugScreen extends Screen {
     }
 
     private String diagnostics() {
-        String world = minecraft.level == null ? "world: none" : "world: loaded";
-        String player = minecraft.player == null ? "player: none" : "player: " + minecraft.player.getGameProfile().name();
+        String world = client.world == null ? "world: none" : "world: loaded";
+        String player = client.player == null ? "player: none" : "player: " + client.player.getGameProfile().getName();
         String queue = "rotation: " + RotationManager.INSTANCE.taskSize();
         String render = "render: " + RenderUtil.renderList.size();
         ClientModule module = currentModule();

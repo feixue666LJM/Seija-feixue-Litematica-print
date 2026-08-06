@@ -11,15 +11,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.kijinseija.seija_printer.settings.core.IVisible;
 import com.kijinseija.seija_printer.settings.core.Setting;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.StringTag;
-import net.minecraft.nbt.Tag;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.block.Block;
 import java.util.*;
 import java.util.function.Consumer;
+import net.minecraft.block.Block;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtString;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 
 public class BlockReplaceSetting extends Setting<HashMap<List<Block>, List<Block>>> {
 
@@ -57,8 +57,8 @@ public class BlockReplaceSetting extends Setting<HashMap<List<Block>, List<Block
 
 
     @Override
-    protected CompoundTag save(CompoundTag tag) {
-        ListTag valueTag = new ListTag();//总列表 存储键值对
+    protected NbtCompound save(NbtCompound tag) {
+        NbtList valueTag = new NbtList();//总列表 存储键值对
         for (Map.Entry<List<Block>, List<Block>> blockEntry : get().entrySet()) {
             List<Block> keyBlocks = blockEntry.getKey();
             List<Block> valueBlocks = blockEntry.getValue();
@@ -67,17 +67,17 @@ public class BlockReplaceSetting extends Setting<HashMap<List<Block>, List<Block
                 continue;
 
             //单个
-            CompoundTag entryTag = new CompoundTag();//单个键值对标签
+            NbtCompound entryTag = new NbtCompound();//单个键值对标签
 
-            ListTag keyBlockList = new ListTag();
+            NbtList keyBlockList = new NbtList();
             for (Block block : keyBlocks) {
-                keyBlockList.add(StringTag.valueOf(BuiltInRegistries.BLOCK.getKey(block).toString()));
+                keyBlockList.add(NbtString.of(Registries.BLOCK.getId(block).toString()));
             }//填写key
             entryTag.put("keyBlocks", keyBlockList);
 
-            ListTag valueBlockList = new ListTag();
+            NbtList valueBlockList = new NbtList();
             for (Block block : valueBlocks) {
-                valueBlockList.add(StringTag.valueOf(BuiltInRegistries.BLOCK.getKey(block).toString()));
+                valueBlockList.add(NbtString.of(Registries.BLOCK.getId(block).toString()));
             }//填valueBlock
             entryTag.put("valBlocks", valueBlockList);
 
@@ -91,29 +91,30 @@ public class BlockReplaceSetting extends Setting<HashMap<List<Block>, List<Block
     }
 
     @Override
-    protected HashMap<List<Block>, List<Block>> load(CompoundTag tag) {
-        get().clear();
-        ListTag entryListTag = tag.getListOrEmpty("value");
+    protected HashMap<List<Block>, List<Block>> load(NbtCompound tag) {
+        if (!tag.contains("value", NbtElement.LIST_TYPE)) return copy(defaultValue);
+
+        HashMap<List<Block>, List<Block>> entries = new LinkedHashMap<>();
+        NbtList entryListTag = tag.getList("value", NbtElement.COMPOUND_TYPE);
 
         for (int i = 0; i < entryListTag.size(); i++) {
-            CompoundTag entryTag = entryListTag.getCompound(i).orElse(null);
-            if (entryTag==null)continue;
-            ListTag keyBlocksTag = entryTag.getListOrEmpty("keyBlocks");
+            NbtCompound entryTag = entryListTag.getCompound(i);
+            NbtList keyBlocksTag = entryTag.getList("keyBlocks", NbtElement.STRING_TYPE);
             ArrayList<Block> keyList = new ArrayList<>();
-            for (Tag tagI : keyBlocksTag) {
-                Block block = BuiltInRegistries.BLOCK.getValue(Identifier.parse(tagI.asString().orElse("")));
+            for (NbtElement tagI : keyBlocksTag) {
+                Block block = Registries.BLOCK.get(new Identifier(tagI.asString()));
                 keyList.add(block);
             }
-            ListTag valBlocksTag = entryTag.getListOrEmpty("valBlocks");
+            NbtList valBlocksTag = entryTag.getList("valBlocks", NbtElement.STRING_TYPE);
             ArrayList<Block> valList = new ArrayList<>();
-            for (Tag tagI : valBlocksTag) {
-                Block block = BuiltInRegistries.BLOCK.getValue(Identifier.parse(tagI.asString().orElse("")));
+            for (NbtElement tagI : valBlocksTag) {
+                Block block = Registries.BLOCK.get(new Identifier(tagI.asString()));
                 valList.add(block);
             }
-            get().put(keyList, valList);
+            entries.put(keyList, valList);
         }
 
-        return get();
+        return entries;
     }
 
     @Override
@@ -149,7 +150,7 @@ public class BlockReplaceSetting extends Setting<HashMap<List<Block>, List<Block
 
     private static JsonArray blocksToJson(List<Block> blocks) {
         JsonArray json = new JsonArray();
-        for (Block block : blocks) json.add(new JsonPrimitive(BuiltInRegistries.BLOCK.getKey(block).toString()));
+        for (Block block : blocks) json.add(new JsonPrimitive(Registries.BLOCK.getId(block).toString()));
         return json;
     }
 
@@ -157,7 +158,7 @@ public class BlockReplaceSetting extends Setting<HashMap<List<Block>, List<Block
         if (json == null) throw new IllegalArgumentException("Missing block list");
         List<Block> blocks = new ArrayList<>();
         for (JsonElement element : json) {
-            blocks.add(BuiltInRegistries.BLOCK.getValue(Identifier.parse(element.getAsString())));
+            blocks.add(Registries.BLOCK.get(new Identifier(element.getAsString())));
         }
         return blocks;
     }
