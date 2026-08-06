@@ -294,9 +294,9 @@ public class BlockUtil {
         if (!mc.level.getWorldBorder().isWithinBounds(pos))return new LinkedList<>();
         return (pri.bSetStrictDir.get() ? canTorchFac(pos) : Arrays.asList(Direction.values())).stream()
             .filter(dir -> (!pri.bSetStrictDir.get()) || canPlaceIn(pos.relative(dir)))
-            .filter(dir -> pri.dRangeSetPrintingYRange.get().isInRange(pos.getCenter().relative(dir, 0.5).y - mc.player.getY()))
+            .filter(dir -> pri.dRangeSetPrintingYRange.get().isInRange(Vec3.atCenterOf(pos).relative(dir, 0.5).y - mc.player.getY()))
             //高度检测 针对于放置比自己低太多的方块
-            .filter(dir -> pos.getCenter().relative(dir, 0.5).distanceTo(mc.player.getEyePosition()) <= pri.dSetPrintingRange.get())
+            .filter(dir -> Vec3.atCenterOf(pos).relative(dir, 0.5).distanceTo(mc.player.getEyePosition()) <= pri.dSetPrintingRange.get())
             //距离检测
 
             .collect(Collectors.toList());
@@ -319,11 +319,11 @@ public class BlockUtil {
             //不可被替换
             .filter(dir -> (mc.level.getBlockState(pos).isAir()) || !mc.level.getBlockState(pos).isFaceSturdy(mc.level, pos, dir, SupportType.FULL))
             //方块自身阻挡检测
-            .filter(dir -> pri.dRangeSetPrintingYRange.get().isInRange(pos.getCenter().relative(dir, 0.5).y - mc.player.getY()))
+            .filter(dir -> pri.dRangeSetPrintingYRange.get().isInRange(Vec3.atCenterOf(pos).relative(dir, 0.5).y - mc.player.getY()))
             //高度检测 针对于放置比自己低太多的方块
             .filter(dir -> SeijaUtil.isSneak() || !isCanUseBlock(pos.relative(dir), mc.level.getBlockState(pos.relative(dir)), mc.level))
             //不可交互
-            .filter(dir -> pos.getCenter().relative(dir, 0.5).distanceTo(mc.player.getEyePosition()) <= pri.dSetPrintingRange.get())
+            .filter(dir -> Vec3.atCenterOf(pos).relative(dir, 0.5).distanceTo(mc.player.getEyePosition()) <= pri.dSetPrintingRange.get())
             //距离检测
             .filter(dir-> mc.level.getWorldBorder().isWithinBounds(pos.relative(dir)))
             //边境
@@ -570,4 +570,3 @@ public class BlockUtil {
 
 
 }
-

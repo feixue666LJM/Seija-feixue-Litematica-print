@@ -9,6 +9,7 @@ import com.kijinseija.seija_printer.print_main.modules.Printer;
 import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
 
 public class PosSorter {
     static Minecraft mc = Minecraft.getInstance();
@@ -34,8 +35,8 @@ public class PosSorter {
             else {
                 int distanceVal;
                 switch (pri.eSetDistanceSortMode.get()) {
-                    case HIGH -> distanceVal = -Integer.compare((int) pos1.getCenter().distanceToSqr(mc.player.getEyePosition()), Integer.valueOf((int) pos2.getCenter().distanceToSqr(mc.player.getEyePosition())));
-                    case LOW -> distanceVal = Integer.compare((int) pos1.getCenter().distanceToSqr(mc.player.getEyePosition()), Integer.valueOf((int) pos2.getCenter().distanceToSqr(mc.player.getEyePosition())));
+                    case HIGH -> distanceVal = -Integer.compare((int) Vec3.atCenterOf(pos1).distanceToSqr(mc.player.getEyePosition()), Integer.valueOf((int) Vec3.atCenterOf(pos2).distanceToSqr(mc.player.getEyePosition())));
+                    case LOW -> distanceVal = Integer.compare((int) Vec3.atCenterOf(pos1).distanceToSqr(mc.player.getEyePosition()), Integer.valueOf((int) Vec3.atCenterOf(pos2).distanceToSqr(mc.player.getEyePosition())));
                     default ->  distanceVal = 0;
                 }
                 return distanceVal;
@@ -45,11 +46,11 @@ public class PosSorter {
     }
 
     private static int sortAngle(BlockPos pos1, BlockPos pos2) {
-        double e1yaw = Math.abs(SeijaUtil.getYaw(pos1.getCenter()) - mc.player.getYRot());
-        double e2yaw = Math.abs(SeijaUtil.getYaw(pos2.getCenter()) - mc.player.getYRot());
+        double e1yaw = Math.abs(SeijaUtil.getYaw(Vec3.atCenterOf(pos1)) - mc.player.getYRot());
+        double e2yaw = Math.abs(SeijaUtil.getYaw(Vec3.atCenterOf(pos2)) - mc.player.getYRot());
 
-        double e1pitch = Math.floor(Math.abs(SeijaUtil.getPitch(pos1.getCenter()) - mc.player.getXRot())/20);
-        double e2pitch = Math.floor(Math.abs(SeijaUtil.getPitch(pos2.getCenter()) - mc.player.getXRot())/20);
+        double e1pitch = Math.floor(Math.abs(SeijaUtil.getPitch(Vec3.atCenterOf(pos1)) - mc.player.getXRot())/20);
+        double e2pitch = Math.floor(Math.abs(SeijaUtil.getPitch(Vec3.atCenterOf(pos2)) - mc.player.getXRot())/20);
 
         return Double.compare(e1yaw * e1yaw + e1pitch * e1pitch, e2yaw * e2yaw + e2pitch * e2pitch);
     }
