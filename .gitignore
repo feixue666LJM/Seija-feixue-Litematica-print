@@ -1,0 +1,11 @@
+.gradle/
+build/
+gradle/buildOutputCleanup/
+!gradle/wrapper/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+build/
+out/
+*.class
+*.jar
+*.war

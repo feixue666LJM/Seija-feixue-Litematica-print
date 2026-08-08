@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "name": "Advanced Litematica Printer",
+  "id": "seija-printer",
+  "version": "${version}",
+  "description": "Fast printer for Litematica.",
+  "authors": [
+    "chunfeng663",
+    "Nippaku_Zanmu",
+    "feixue"
+  ],
+  "license": "GPL-3.0-only",
+  "icon": "assets/seija_printer/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.kijinseija.seija_printer.Addon"
+    ]
+  },
+  "mixins": [
+    "seija-printer.mixins.json"
+  ],
+  "accessWidener": "seija-printer.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.20.4",
+    "java": ">=17",
+    "fabric-api": ">=0.97.1+1.20.4",
+    "litematica": ">=0.16.10",
+    "malilib": ">=0.16.3"
+  }
+}

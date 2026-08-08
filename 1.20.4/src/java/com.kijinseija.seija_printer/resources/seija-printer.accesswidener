@@ -1,0 +1,3 @@
+accessWidener v2 named
+accessible method net/minecraft/item/BlockItem getPlacementState (Lnet/minecraft/item/ItemPlacementContext;)Lnet/minecraft/block/BlockState;
+accessible field net/minecraft/item/AxeItem STRIPPED_BLOCKS Ljava/util/Map;

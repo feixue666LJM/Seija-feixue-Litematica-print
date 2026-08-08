@@ -4,125 +4,503 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61bc41ed-479c-4291-9dd5-0701b40c6fd9" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/events/Render3DEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Addon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/render/Render3DEvent.java" beforeDir="false" />
+    <list default="true" id="35861966-0d5f-4f7f-8de0-563a68af2c84" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.0/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.0/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.0/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.0/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.0/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.0/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.0/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.0/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.0/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.0/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/launch.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/log4j.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-0c2ad7025c/26.1.2/minecraft-merged-0c2ad7025c-26.1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-0c2ad7025c/26.1.2/minecraft-merged-0c2ad7025c-26.1.2.jar.backup" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-0c2ad7025c/26.1.2/minecraft-merged-0c2ad7025c-26.1.2.pom" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/source_mappings/0c2ad7025c56f851fcb08dbbd3a2fbe296abe3c2.tiny" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/source_mappings/empty.tiny" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/seija-printer.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/seija-printer.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Client.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Server.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/Addon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/events/Render3DEvent$Renderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/events/Render3DEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/gui/PrinterDebugScreen$SettingRow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/gui/PrinterDebugScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/mixin/ChunkRendererSchematicVboMixin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/mixin/ClientWorldAccessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/mixin/PistonBlockMixin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/mixin/SchematicVerifierMixin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/mixin/WTextBoxAccessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/player/ChatUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/player/FindItemResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/player/InvUtils$Action.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/player/InvUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/player/Rotations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/player/SlotUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/InitClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/ClientModule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/ItemSearcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/PlaceDebug.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/Printer$DistanceMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/Printer$InvSwitchMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/Printer$RenderMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/Printer$SurfaceModes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/Printer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/RayTraceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/modules/ScheDebug.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/AbstractFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/FixerManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/CampFireFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/DirtFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/FlowerPotFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/ScaffoldFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/SlabFixer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/SlabFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/StrippedFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/AbstractClickFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/DaylightDetectorFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/DoorFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/LeverFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/NoteBlockFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RSTComparatorFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RSTRepeaterFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RedStoneFixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/entity_placer/EntityPlacerManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/extra_setting/ExtraSettingManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/extra_setting/HasExtraSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/AbstractDataGetter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/PlaceDataManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/getter/BuckedDataGetter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/BlockStateVerify.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/DataGetter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/FakePlacementContext$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/FakePlacementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/ChestDecide$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/ChestDecide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/Decide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/FallingBlockDecide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MainDecide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MultifaceGrowthDecide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/SlabDecide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/task_manager/PrinterTaskManger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/task_manager/RotationManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/task_manager/RotationTask.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/task_manager/Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/BlockReplaceUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/BlockRotDataGetter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/BlockRotDataGetter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/BlockUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/DirSorter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/InvUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/InvUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/PosSorter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/PosSorter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/PredictUtility$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/PredictUtility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/RayTraceUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/RenderHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/RenderUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/RotationUtils$Rotation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/RotationUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/ScheVerifyMixinUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/SeijaTimer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/SeijaUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/ShadyRotation$Rotation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/ShadyRotation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/SurfaceUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/SurfaceUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/records/DirData$DirDataConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/records/DirData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/records/DirDataI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/records/PlaceData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/records/PlaceDataPack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/records/PosInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/print_main/printer/util/records/RotationData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/render/ShapeMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/PrinterSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/BlockListSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/BlockListSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/BlockPosSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/BlockPosSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/BoolSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/BoolSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/Color.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/ColorSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/ColorSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/DoubleSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/DoubleSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/EnumSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/EnumSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/IVisible.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/IntSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/IntSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/RainbowColor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/Setting$SettingBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/Setting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/SettingColor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/SettingGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/Settings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/StringSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/core/StringSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/BlockReplaceSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/BlockReplaceSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/BlockReplaceSettingScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/DirectionListSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/DirectionListSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/DirectionListSettingScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/DoubleRangeSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/DoubleRangeSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/SettingsSetting$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/SettingsSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/impl/SettingsSettingScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/obj/DoubleRange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/widgets/WSelectedCountLabel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/widgets/input/WDoubleRangeEdit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/widgets/input/WIntRangeEdit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/seija/printer/settings/widgets/input/WRangeSlider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Litematica-seija-and-feixue-print-1.5.6-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Litematica-seija-and-feixue-print-1.5.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/seija_printer/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/seija_printer/lang/en_us.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/seija_printer/lang/zh_cn.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/fabric.mod.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/rebel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/seija-printer.accesswidener" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/seija-printer.mixins.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AbstractClickFixer.class.uniqueId41" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AbstractDataGetter.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AbstractFixer.class.uniqueId90" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Addon.class.uniqueId35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockListSetting$Builder.class.uniqueId67" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockListSetting.class.uniqueId15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockPosSetting$Builder.class.uniqueId71" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockPosSetting.class.uniqueId132" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockReplaceSetting$Builder.class.uniqueId24" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockReplaceSetting.class.uniqueId64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockReplaceSettingScreen.class.uniqueId115" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockReplaceUtils.class.uniqueId81" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockRotDataGetter$1.class.uniqueId95" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockRotDataGetter.class.uniqueId125" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockStateVerify.class.uniqueId30" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BlockUtil.class.uniqueId60" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BoolSetting$Builder.class.uniqueId11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BoolSetting.class.uniqueId121" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BuckedDataGetter.class.uniqueId7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CampFireFixer.class.uniqueId98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ChatUtils.class.uniqueId8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ChestDecide$1.class.uniqueId127" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ChestDecide.class.uniqueId36" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ChunkRendererSchematicVboMixin.class.uniqueId63" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ClientModule.class.uniqueId93" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ClientWorldAccessor.class.uniqueId49" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Color.class.uniqueId69" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ColorSetting$Builder.class.uniqueId86" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ColorSetting.class.uniqueId23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DataGetter.class.uniqueId104" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DaylightDetectorFixer.class.uniqueId27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Decide.class.uniqueId14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DirData$DirDataConfig.class.uniqueId54" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DirData.class.uniqueId16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DirDataI.class.uniqueId34" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DirSorter.class.uniqueId40" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DirectionListSetting$Builder.class.uniqueId123" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DirectionListSetting.class.uniqueId61" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DirectionListSettingScreen.class.uniqueId48" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DirtFixer.class.uniqueId116" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DoorFixer.class.uniqueId62" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DoubleRange.class.uniqueId57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DoubleRangeSetting$Builder.class.uniqueId124" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DoubleRangeSetting.class.uniqueId96" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DoubleSetting$Builder.class.uniqueId31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DoubleSetting.class.uniqueId75" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EntityPlacerManager.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnumSetting$Builder.class.uniqueId130" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EnumSetting.class.uniqueId17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ExtraSettingManager.class.uniqueId101" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/FakePlacementContext$1.class.uniqueId68" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/FakePlacementContext.class.uniqueId73" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/FallingBlockDecide.class.uniqueId58" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/FindItemResult.class.uniqueId94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/FixerManager.class.uniqueId29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/FlowerPotFixer.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HasExtraSetting.class.uniqueId122" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/IVisible.class.uniqueId131" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/InitClass.class.uniqueId33" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/IntSetting$Builder.class.uniqueId12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/IntSetting.class.uniqueId82" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/InvUtil$1.class.uniqueId66" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/InvUtil.class.uniqueId102" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/InvUtils$Action.class.uniqueId135" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/InvUtils.class.uniqueId77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ItemSearcher.class.uniqueId44" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LeverFixer.class.uniqueId105" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainDecide.class.uniqueId37" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MultifaceGrowthDecide.class.uniqueId9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/NoteBlockFixer.class.uniqueId39" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PistonBlockMixin.class.uniqueId65" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlaceData.class.uniqueId79" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlaceDataManager.class.uniqueId84" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlaceDataPack.class.uniqueId10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlaceDebug.class.uniqueId133" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PosInfo.class.uniqueId47" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PosSorter$1.class.uniqueId74" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PosSorter.class.uniqueId136" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PredictUtility$1.class.uniqueId53" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PredictUtility.class.uniqueId19" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Printer$DistanceMode.class.uniqueId13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Printer$InvSwitchMode.class.uniqueId129" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Printer$RenderMode.class.uniqueId120" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Printer$SurfaceModes.class.uniqueId119" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Printer.class.uniqueId100" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PrinterDebugScreen$SettingRow.class.uniqueId108" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PrinterDebugScreen.class.uniqueId114" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PrinterSettings.class.uniqueId91" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PrinterTaskManger.class.uniqueId56" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RSTComparatorFixer.class.uniqueId134" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RSTRepeaterFixer.class.uniqueId52" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RainbowColor.class.uniqueId110" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RayTraceTest.class.uniqueId88" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RayTraceUtil.class.uniqueId38" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RedStoneFixer.class.uniqueId25" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Render3DEvent$Renderer.class.uniqueId80" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Render3DEvent.class.uniqueId113" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RenderHelper.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RenderUtil.class.uniqueId106" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RotationData.class.uniqueId22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RotationManager.class.uniqueId50" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RotationTask.class.uniqueId42" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RotationUtils$Rotation.class.uniqueId45" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RotationUtils.class.uniqueId103" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Rotations.class.uniqueId85" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ScaffoldFixer.class.uniqueId59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ScheDebug.class.uniqueId46" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ScheVerifyMixinUtil.class.uniqueId107" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SchematicVerifierMixin.class.uniqueId87" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SeijaTimer.class.uniqueId72" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SeijaUtil.class.uniqueId126" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Setting$SettingBuilder.class.uniqueId51" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Setting.class.uniqueId89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SettingColor.class.uniqueId28" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SettingGroup.class.uniqueId109" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Settings.class.uniqueId76" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SettingsSetting$Builder.class.uniqueId128" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SettingsSetting.class.uniqueId32" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SettingsSettingScreen.class.uniqueId99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ShadyRotation$Rotation.class.uniqueId92" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ShadyRotation.class.uniqueId26" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ShapeMode.class.uniqueId112" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SlabDecide.class.uniqueId70" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SlabFixer$1.class.uniqueId118" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SlabFixer.class.uniqueId18" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SlotUtils.class.uniqueId43" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StringSetting$Builder.class.uniqueId6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StringSetting.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StrippedFixer.class.uniqueId78" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SurfaceUtil$1.class.uniqueId111" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SurfaceUtil.class.uniqueId97" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Task.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WDoubleRangeEdit.class.uniqueId21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WIntRangeEdit.class.uniqueId20" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WRangeSlider.class.uniqueId83" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WSelectedCountLabel.class.uniqueId55" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WTextBoxAccessor.class.uniqueId117" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/sourcesJar/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/PrinterDebugScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/gui/PrinterDebugScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mixin/ChunkRendererSchematicVboMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/ChunkRendererSchematicVboMixin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mixin/ClientWorldAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/ClientWorldAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mixin/PistonBlockMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/PistonBlockMixin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mixin/SchematicVerifierMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/SchematicVerifierMixin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mixin/WTextBoxAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/WTextBoxAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/InitClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/InitClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/modules/ClientModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ClientModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/modules/ItemSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ItemSearcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/modules/PlaceDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/PlaceDebug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/modules/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/Printer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/modules/RayTraceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/RayTraceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/modules/ScheDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ScheDebug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/AbstractFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/AbstractFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/FixerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/FixerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/CampFireFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/CampFireFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/DirtFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/DirtFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/FlowerPotFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/FlowerPotFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/ScaffoldFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/ScaffoldFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/SlabFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/SlabFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/StrippedFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/StrippedFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/AbstractClickFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/AbstractClickFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/DaylightDetectorFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/DaylightDetectorFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/DoorFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/DoorFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/LeverFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/LeverFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/NoteBlockFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/NoteBlockFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/RSTComparatorFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RSTComparatorFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/RSTRepeaterFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RSTRepeaterFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/block_fixer/fixers/click_fixer/RedStoneFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RedStoneFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/entity_placer/EntityPlacerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/entity_placer/EntityPlacerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/extra_setting/ExtraSettingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/extra_setting/ExtraSettingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/extra_setting/HasExtraSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/extra_setting/HasExtraSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/AbstractDataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/AbstractDataGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/PlaceDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/PlaceDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/getter/BuckedDataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/getter/BuckedDataGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/BlockStateVerify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/BlockStateVerify.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/DataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/DataGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/FakePlacementContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/FakePlacementContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/ChestDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/ChestDecide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/Decide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/Decide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/FallingBlockDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/FallingBlockDecide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MainDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MainDecide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MultifaceGrowthDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MultifaceGrowthDecide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/SlabDecide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/SlabDecide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/task_manager/PrinterTaskManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/PrinterTaskManger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/task_manager/RotationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/RotationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/task_manager/RotationTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/RotationTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/task_manager/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/BlockReplaceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockReplaceUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/BlockRotDataGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockRotDataGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/BlockUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/DirSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/DirSorter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/InvUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/InvUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/PosSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/PosSorter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/PredictUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/PredictUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/RayTraceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RayTraceUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/RenderHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RenderHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/RenderUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RenderUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/RotationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RotationUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/ScheVerifyMixinUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/ScheVerifyMixinUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/SeijaTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SeijaTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/SeijaUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SeijaUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/ShadyRotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/ShadyRotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/SurfaceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SurfaceUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/DirData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/DirData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/DirDataI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/DirDataI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/PlaceData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PlaceData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/PlaceDataPack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PlaceDataPack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/PosInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PosInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_main/printer/util/records/RotationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/RotationData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/render/ShapeMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/render/ShapeMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/seija_printer/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/seija_printer/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/lang/en_us.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/seija_printer/lang/zh_cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/lang/zh_cn.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/rebel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/rebel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/seija-printer.accesswidener" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/seija-printer.accesswidener" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/seija-printer.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/seija-printer.mixins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/PrinterSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/PrinterSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/BlockListSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BlockListSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/BlockPosSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BlockPosSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/BoolSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BoolSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/ColorSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/ColorSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/DoubleSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/DoubleSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/EnumSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/EnumSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/IVisible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/IVisible.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/IntSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/IntSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/RainbowColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/RainbowColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Setting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/SettingColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/SettingColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/SettingGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/SettingGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/core/StringSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/StringSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/impl/BlockReplaceSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/BlockReplaceSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/impl/BlockReplaceSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/BlockReplaceSettingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/impl/DirectionListSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DirectionListSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/impl/DirectionListSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DirectionListSettingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/impl/DoubleRangeSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DoubleRangeSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/impl/SettingsSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/SettingsSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/impl/SettingsSettingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/SettingsSettingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/obj/DoubleRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/obj/DoubleRange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/widgets/WSelectedCountLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/WSelectedCountLabel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/widgets/input/WDoubleRangeEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WDoubleRangeEdit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/widgets/input/WIntRangeEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WIntRangeEdit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/widgets/input/WRangeSlider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WRangeSlider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/player/ChatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/ChatUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/player/FindItemResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/FindItemResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/player/InvUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/InvUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/player/Rotations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/Rotations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/player/SlotUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/SlotUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/.fabric/processedMods/conditional-mixin-0.6.4-d64141ce8601fdc1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/litematica.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/litematica/litematica_New World.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/litematica/litematica_New World_dim_minecraft_overworld.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/malilib.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/seija-printer-item-searcher.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/seija-printer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/data/fabric_default_resource_packs.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/debug-profile.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/downloads/log.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/eula.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2026-08-06-1.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/custom_boss_events.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/game_rules.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/random_sequences.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/scheduled_events.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/scoreboard.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/stopwatches.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/wandering_trader.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/weather.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/world_clocks.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/minecraft/world_gen_settings.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/data/minecraft/chunk_tickets.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/data/minecraft/raids.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/data/minecraft/world_border.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/entities/r.-1.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/entities/r.-1.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/entities/r.0.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/entities/r.0.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/poi/r.-1.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/poi/r.-1.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/poi/r.0.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/poi/r.0.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/region/r.-1.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/region/r.-1.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/region/r.0.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/overworld/region/r.0.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/the_end/data/minecraft/chunk_tickets.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/the_end/data/minecraft/ender_dragon_fight.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/the_end/data/minecraft/raids.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/the_end/data/minecraft/world_border.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/the_nether/data/minecraft/chunk_tickets.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/the_nether/data/minecraft/raids.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/dimensions/minecraft/the_nether/data/minecraft/world_border.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/players/advancements/8900053b-f4fc-363a-959f-93166c198461.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/players/data/8900053b-f4fc-363a-959f-93166c198461.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/players/data/8900053b-f4fc-363a-959f-93166c198461.dat_old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/players/stats/8900053b-f4fc-363a-959f-93166c198461.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/session.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/server.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/events/Render3DEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/gui/PrinterDebugScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/ChunkRendererSchematicVboMixin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/ClientWorldAccessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/PistonBlockMixin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/SchematicVerifierMixin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/mixin/WTextBoxAccessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/ChatUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/FindItemResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/InvUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/Rotations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/player/SlotUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/InitClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ClientModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ItemSearcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/PlaceDebug.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/Printer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/RayTraceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/modules/ScheDebug.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/AbstractFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/FixerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/CampFireFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/DirtFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/FlowerPotFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/ScaffoldFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/SlabFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/StrippedFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/AbstractClickFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/DaylightDetectorFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/DoorFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/LeverFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/NoteBlockFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RSTComparatorFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RSTRepeaterFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/block_fixer/fixers/click_fixer/RedStoneFixer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/entity_placer/EntityPlacerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/extra_setting/ExtraSettingManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/extra_setting/HasExtraSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/AbstractDataGetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/PlaceDataManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/getter/BuckedDataGetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/BlockStateVerify.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/DataGetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/FakePlacementContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/ChestDecide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/Decide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/FallingBlockDecide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MainDecide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/MultifaceGrowthDecide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/placedata_getter/vanilla_precision_placer/state_decide/SlabDecide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/PrinterTaskManger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/RotationManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/RotationTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/task_manager/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockReplaceUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockRotDataGetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/BlockUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/DirSorter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/InvUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/PosSorter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/PredictUtility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RayTraceUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RenderHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RenderUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/RotationUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/ScheVerifyMixinUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SeijaTimer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SeijaUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/ShadyRotation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/SurfaceUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/DirData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/DirDataI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PlaceData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PlaceDataPack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/PosInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/print_main/printer/util/records/RotationData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/render/ShapeMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/PrinterSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BlockListSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BlockPosSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/BoolSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Color.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/ColorSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/DoubleSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/EnumSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/IVisible.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/IntSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/RainbowColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Setting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/SettingColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/SettingGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/Settings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/core/StringSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/BlockReplaceSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/BlockReplaceSettingScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DirectionListSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DirectionListSettingScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/DoubleRangeSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/SettingsSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/impl/SettingsSettingScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/obj/DoubleRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/WSelectedCountLabel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WDoubleRangeEdit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WIntRangeEdit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/seija/printer/settings/widgets/input/WRangeSlider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/lang/en_us.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/seija_printer/lang/zh_cn.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/rebel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/seija-printer.accesswidener" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/seija-printer.mixins.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,23 +525,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="seija-printer" type="f1a62948:ProjectNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="seija-printer" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="seija-printer" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="seija-printer" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="fabric" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -181,79 +542,83 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/26.1.2/src/main/java/com/seija/printer/gui/PrinterDebugScreen.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0390103296531754" />
-      <entry key="MS500" value="1.5226800501025823" />
-      <entry key="S2" value="1.8502741600641959" />
-      <entry key="S5" value="1.9371812526712149" />
-      <entry key="S10" value="1.968081222145753" />
-      <entry key="S30" value="1.9892451553579034" />
-      <entry key="S60" value="1.9946084833750506" />
-      <entry key="M2" value="1.997965875958191" />
-      <entry key="M5" value="2.0557318621056795" />
-      <entry key="M10" value="2.303374184969442" />
-      <entry key="M15" value="2.589667125542846" />
-      <entry key="M30" value="3.257197585724551" />
-      <entry key="H1" value="3.9136557034863104" />
-      <entry key="H2" value="4.387197104408779" />
-      <entry key="H4" value="4.673653837369727" />
-      <entry key="D1" value="4.9425914037895575" />
-      <entry key="W1" value="4.99172140196749" />
+      <entry key="MS100" value="6.110157395664242E-11" />
+      <entry key="MS500" value="0.009524624332865212" />
+      <entry key="S2" value="0.480211451599551" />
+      <entry key="S5" value="1.393135080051797" />
+      <entry key="S10" value="2.320112326208329" />
+      <entry key="S30" value="3.7854274044362812" />
+      <entry key="S60" value="4.811630475204883" />
+      <entry key="M2" value="6.069611911611891" />
+      <entry key="M5" value="7.7152338182953155" />
+      <entry key="M10" value="8.982768129192419" />
+      <entry key="M15" value="9.68201362263918" />
+      <entry key="M30" value="10.642385531722311" />
+      <entry key="H1" value="11.260512411891163" />
+      <entry key="H2" value="11.613430428460495" />
+      <entry key="H4" value="11.802281475746744" />
+      <entry key="D1" value="11.966410795217051" />
+      <entry key="W1" value="11.995185691590482" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="3.792807427656574E-191" />
-      <entry key="S5" value="6.785538471461622E-77" />
-      <entry key="S10" value="8.237437994584009E-39" />
-      <entry key="S30" value="2.0195939119785325E-13" />
-      <entry key="S60" value="4.4939892211469895E-7" />
-      <entry key="M2" value="6.703722265388826E-4" />
-      <entry key="M5" value="0.05376831234863545" />
-      <entry key="M10" value="0.2318799524509082" />
-      <entry key="M15" value="0.3774349693658742" />
-      <entry key="M30" value="0.6143573629133732" />
-      <entry key="H1" value="0.7838095195347995" />
-      <entry key="H2" value="0.8853301754344531" />
-      <entry key="H4" value="0.940919856010305" />
-      <entry key="D1" value="0.9899017808904661" />
-      <entry key="W1" value="0.9985511146497755" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000002007334" />
+      <entry key="S2" value="1.003823150846335" />
+      <entry key="S5" value="1.1320075153025526" />
+      <entry key="S10" value="1.549190769040059" />
+      <entry key="S30" value="3.0244443615134475" />
+      <entry key="S60" value="4.438167446108049" />
+      <entry key="M2" value="5.964419940601103" />
+      <entry key="M5" value="7.581436179273546" />
+      <entry key="M10" value="8.465733943558446" />
+      <entry key="M15" value="8.867272280135671" />
+      <entry key="M30" value="9.363549840195592" />
+      <entry key="H1" value="9.660584242966832" />
+      <entry key="H2" value="9.82444446671937" />
+      <entry key="H4" value="9.910684884498574" />
+      <entry key="D1" value="9.984893885961245" />
+      <entry key="W1" value="9.997836499277811" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0036178235401818" />
-      <entry key="MS500" value="1.5121621307085644" />
-      <entry key="S2" value="1.8470706556975738" />
-      <entry key="S5" value="1.935838966202475" />
-      <entry key="S10" value="1.9673992553532973" />
-      <entry key="S30" value="1.989015362019925" />
-      <entry key="S60" value="1.9944937158696103" />
-      <entry key="M2" value="1.9985732042312152" />
-      <entry key="M5" value="2.1093002945975203" />
-      <entry key="M10" value="2.5348280766464297" />
-      <entry key="M15" value="2.966613990393733" />
-      <entry key="M30" value="3.871118093701371" />
-      <entry key="H1" value="4.697167256415913" />
-      <entry key="H2" value="5.272352281057548" />
-      <entry key="H4" value="5.614478716754814" />
-      <entry key="D1" value="5.932476222087777" />
-      <entry key="W1" value="5.990270064313924" />
+      <entry key="MS100" value="0.003825860537781829" />
+      <entry key="MS500" value="0.33170462137934725" />
+      <entry key="S2" value="1.0510596526565497" />
+      <entry key="S5" value="2.0857958017352765" />
+      <entry key="S10" value="3.469096313820504" />
+      <entry key="S30" value="6.554514856777125" />
+      <entry key="S60" value="9.082612118679496" />
+      <entry key="M2" value="11.931515147055899" />
+      <entry key="M5" value="15.247422228309645" />
+      <entry key="M10" value="17.421100533756253" />
+      <entry key="M15" value="18.530044455840475" />
+      <entry key="M30" value="19.99565988488268" />
+      <entry key="H1" value="20.915750903593647" />
+      <entry key="H2" value="21.43514297516923" />
+      <entry key="H4" value="21.711584644286248" />
+      <entry key="D1" value="21.95107211650103" />
+      <entry key="W1" value="21.99298891031822" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0,
-  &quot;fromUser&quot;: false
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="3HXb3dvvWicr9PiQZfHEesgUExq" />
+  <component name="ProjectId" id="3HctGkWaKxtzewqGIEbMnxdsnzj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.Seija-feixue-Litematica-print [build].executor": "Run",
-    "Gradle.Seija-feixue-Litematica-print [runClient].executor": "Run",
-    "Gradle.Seija-feixue-Litematica-print [runServer].executor": "Run",
+    "Gradle.new code [:1.20.4:build].executor": "Run",
+    "Gradle.new code [:26.1.2:runClientRenderDoc].executor": "Run",
+    "Gradle.new code [:26.1.2:runClient].executor": "Run",
+    "Gradle.new code [:26.1.2:runServer].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -261,23 +626,18 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/adzc/桌面/Seija-feixue-Litematica-print",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\adzc\桌面\Seija-feixue-Litematica-print\src\main\java" />
-      <recent name="C:\Users\adzc\桌面\Seija-feixue-Litematica-print\src\main" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Gradle.Seija-feixue-Litematica-print [build]">
-    <configuration name="Seija-feixue-Litematica-print [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.new code [:26.1.2:runClient]">
+    <configuration name="new code [:1.20.4:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -288,7 +648,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value=":1.20.4:build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -302,7 +662,7 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="Seija-feixue-Litematica-print [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="new code [:26.1.2:runClientRenderDoc]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -313,7 +673,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="runClient" />
+            <option value=":26.1.2:runClientRenderDoc" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -327,7 +687,7 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="Seija-feixue-Litematica-print [runServer]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="new code [:26.1.2:runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -338,7 +698,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="runServer" />
+            <option value=":26.1.2:runClient" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -350,13 +710,48 @@
       <RunAsTest>false</RunAsTest>
       <GradleProfilingDisabled>false</GradleProfilingDisabled>
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="new code [:26.1.2:runServer]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":26.1.2:runServer" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Seija-feixue-Litematica-print [build]" />
-        <item itemvalue="Gradle.Seija-feixue-Litematica-print [runClient]" />
-        <item itemvalue="Gradle.Seija-feixue-Litematica-print [runServer]" />
+        <item itemvalue="Gradle.new code [:26.1.2:runClient]" />
+        <item itemvalue="Gradle.new code [:26.1.2:runClientRenderDoc]" />
+        <item itemvalue="Gradle.new code [:26.1.2:runServer]" />
+        <item itemvalue="Gradle.new code [:1.20.4:build]" />
       </list>
     </recent_temporary>
   </component>
@@ -370,11 +765,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="61bc41ed-479c-4291-9dd5-0701b40c6fd9" name="更改" comment="" />
-      <created>1786017163617</created>
+      <changelist id="35861966-0d5f-4f7f-8de0-563a68af2c84" name="更改" comment="" />
+      <created>1786179091807</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1786017163617</updated>
+      <updated>1786179091807</updated>
     </task>
     <servers />
   </component>
